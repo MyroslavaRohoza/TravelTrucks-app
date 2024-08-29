@@ -1,17 +1,28 @@
-.header{
-    padding: 24px 64px 24px 64px;
-    border-bottom: 1px solid rgb(0, 0, 0);
-    display: flex;
-    background-color: var(--cloud-white);
+.header {
+  padding: 24px 64px 24px 64px;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  background-color: var(--cloud-white);
 }
 
-.nav{
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    gap: 32px;
+.nav {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 32px;
 }
 
-.logoAccent {
-  color: var(--slate-blue);
+.captionText {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+
+.captionTextColor {
+  color: var(--charcoal);
+}
+
+.activeNavLink {
+  color: var(--tomato);
 }

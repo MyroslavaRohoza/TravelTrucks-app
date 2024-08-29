@@ -1,0 +1,27 @@
+.homePageSection {
+  background-image: url("src/img/main-page-background-image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-top: 260px;
+  height: calc(100vh - var(--header-height));
+  padding-top: 260px; 
+}
+
+.textColor {
+  color: var(--white-smoke);
+}
+
+.text {
+  font-weight: 600;
+}
+
+.homePageSection h2{
+  margin-bottom: 40px;
+}
+
+.btn:hover, 
+.btn:focus, 
+.btn:active {
+  background-color: var(tomato);
+}

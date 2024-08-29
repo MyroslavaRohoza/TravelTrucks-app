@@ -1,0 +1,17 @@
+.header{
+    padding: 24px 64px 24px 64px;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    display: flex;
+    background-color: var(--cloud-white);
+}
+
+.nav{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 32px;
+}
+
+.logoAccent {
+  color: var(--slate-blue);
+}

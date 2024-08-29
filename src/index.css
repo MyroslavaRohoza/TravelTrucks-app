@@ -1,6 +1,39 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
+  --charcoal: #101828;
+  --slate-blue: #475467;
+  --charcoal-gray: #6c717b;
+  --light-tomato: #e44848;
+  --tomato: #d84343;
+  --golden-yellow: #ffc531;
+  --light-gray: #dadde1;
+  --cloud-white: #f2f4f7;
+  --white-smoke: #f7f7f7;
+  --white: #ffffff;
 }
+
+p,
+h2 {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--charcoal);
+}
+
+

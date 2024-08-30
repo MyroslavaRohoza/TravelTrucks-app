@@ -26,7 +26,7 @@ const Layout = ({ children }) => {
           </NavLink>
         </nav>
       </header>
-      <main className={css.main}>{children}</main>
+      <>{children}</>
     </>
   );
 };

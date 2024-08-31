@@ -1,0 +1,40 @@
+.listItem {
+  border: 1px solid var(--light-gray);
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.listItemContainer {
+  display: flex;
+  gap: 24px;
+}
+
+.campersImgThumb {
+  width: 292px;
+  height: 320px;
+}
+.campersImg {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.description {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.campersInfoContainer{
+  /* display: flex;
+  justify-content: space-between; */
+
+}
+.campersInfo{
+ display: flex;
+ justify-content: space-between;
+}
+
+.campersInfoRating{
+     display: flex;
+}

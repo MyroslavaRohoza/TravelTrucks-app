@@ -23,6 +23,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 525px;
 }
 
 .campersInfoContainer{
@@ -35,6 +36,21 @@
  justify-content: space-between;
 }
 
+.campersInfoPrice{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .campersInfoRating{
      display: flex;
+     align-items: center;
+}
+
+.rating{
+  margin-left: 4px;
+}
+
+.location{
+  margin-left: 16px;
 }

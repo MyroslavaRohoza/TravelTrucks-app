@@ -1,3 +1,6 @@
+import Category from "../Category/Category";
+import Icon from "../Icon/Icon";
+import CatalogFilterList from "../ItemFilterList/CatalogFilterList";
 import css from "./catalogListItem.module.css";
 
 const CatalogListItem = ({
@@ -8,7 +11,18 @@ const CatalogListItem = ({
   reviewsCount,
   location,
   description,
-  vehicleType,
+  transmission,
+  engine,
+  AC,
+  bathroom,
+  kitchen,
+  TV,
+  radio,
+  refrigerator,
+  microwave,
+  gas,
+  water,
+  form,
 }) => {
   return (
     <li className={css.listItem}>
@@ -20,19 +34,41 @@ const CatalogListItem = ({
         <div className={css.campersInfoContainer}>
           <div className={css.campersInfo}>
             <h2>{name}</h2>
-        
-            <div>
-              <p>{price}</p>
-              <p>icon</p>
+
+            <div className={css.campersInfoPrice}>
+              <p>€{price.toFixed(2)}</p>
+              <Icon id="icon-like" width={24} height={24} />
             </div>
           </div>
-    <div className={css.campersInfoRating}>
-              <p>icon</p>
-              <p>{rating}</p>
-              <p>({reviewsCount}Reviews)</p>
-              <p>{location}</p>
-            </div>
-          <p className={css.description}>{description}</p>
+          <div className={css.campersInfoRating}>
+            <Icon
+              id="icon-Rating"
+              width={16}
+              height={16}
+              fill="var(--golden-yellow)"
+              stroke="var(--golden-yellow)"
+            />
+            <p className={css.rating}>{rating}</p>
+            <p>({reviewsCount} Reviews)</p>
+            <p className={css.location}>{location}</p>
+          </div>
+          <div>
+            <p className={css.description}>{description}</p>
+            <CatalogFilterList
+              transmission={transmission}
+              engine={engine}
+              AC={AC}
+              bathroom={bathroom}
+              kitchen={kitchen}
+              TV={TV}
+              radio={radio}
+              refrigerator={refrigerator}
+              microwave={microwave}
+              gas={gas}
+              water={water}
+              form={form}
+            />
+          </div>
         </div>
       </div>
     </li>

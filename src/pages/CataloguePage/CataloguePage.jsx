@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCampers } from "../../redux/campers/operations";
 import CatalogListItem from "../../components/CatalogListItem/CatalogListItem";
 import { selectCampersCollection } from "../../redux/campers/selectors";
+import Category from "../../components/Category/Category";
 
 const CataloguePage = () => {
   const campersCollection = useSelector(selectCampersCollection);
@@ -16,72 +17,70 @@ const CataloguePage = () => {
   }, [dispatch]);
 
   return (
-    <section>
-      <main>
-        {" "}
-        <aside>
-          * When the user clicks the Search button, the component dispatches an
-          * action to fetch the filtered campervans from the API. */
-          <ul>
-            <li>
-              <h3>Location</h3>
-              <input type="text" />
-            </li>
-            <li>
-              <h3>Filters</h3>
-              <ul>
-                <li>
-                  <h4>Vehicle equipment </h4>
-                  <ul>
-                    <li>AC</li>
-                    <li>Automatic</li>
-                    <li>Kithen</li>
-                    <li>TV</li>
-                    <li>Bathroom</li>
-                  </ul>
-                  <ul>
-                    <li>Van</li>
-                    <li>Fully Integrated</li>
-                    <li>Alcove</li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <Button>Search</Button>
-          </ul>
-        </aside>
-        <section>
-          <ul className={css.catalogList}>
-            {Array.isArray(campersCollection) &&
-              campersCollection.map(
-                ({
-                  id,
-                  gallery,
-                  name,
-                  price,
-                  rating,
-                  reviews,
-                  location,
-                  description,
-                  form,
-                }) => (
-                  <CatalogListItem
-                    key={id}
-                    img={gallery[0].thumb}
-                    name={name}
-                    price={price}
-                    rating={rating}
-                    reviewsCount={reviews.length}
-                    location={location}
-                    description={description}
-                    vehicleType={form}
-                  />
-                )
-              )}
-          </ul>
-        </section>
-      </main>
-    </section>
+    <main className={css.catalogueContainer}>
+      <aside>
+        <ul>
+          <li>
+            <h3>Location</h3>
+            <input type="text" />
+          </li>
+          <li>
+            <h3>Filters</h3>
+            <ul>
+              <li>
+                <h4>Vehicle equipment </h4>
+                <ul>
+                  <li>AC</li>
+                  <li>Automatic</li>
+                  <li>Kithen</li>
+                  <li>TV</li>
+                  <li>Bathroom</li>
+                </ul>
+                <ul>
+                  <li>Van</li>
+                  <li>Fully Integrated</li>
+                  <li>Alcove</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <Button>Search</Button>
+        </ul>
+      </aside>
+      <div>
+        <ul className={css.catalogList}>
+          {Array.isArray(campersCollection) &&
+            campersCollection.map(
+              (
+               item
+              ) => (
+                <CatalogListItem
+                  key={item.id}
+                  img={item.gallery[0].thumb}
+                  name={item.name}
+                  price={item.price}
+                  rating={item.rating}
+                  reviewsCount={item.reviews.length}
+                  location={item.location}
+                  description={item.description}
+                  form={item.form}
+                  transmission={item.transmission}
+                  engine={item.engine}
+                  AC={item.AC}
+                  bathroom={item.bathroom}
+                  kitchen={item.kitchen}
+                  TV={item.TV}
+                  radio={item.radio}
+                  refrigerator={item.refrigerator}
+                  microwave={item.microwave}
+                  gas={item.gas}
+                  water={item.water}
+                />
+              )
+            )}
+        </ul>
+      </div>
+    </main>
   );
 };
 

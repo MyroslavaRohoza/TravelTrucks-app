@@ -1,5 +1,6 @@
-//
-import React from "react";
+import css from "./catalogFilterList.module.css";
+import CatalogFilterListItem from "../CatalogFilterListItem/CatalogFilterListItem";
+import Category from "../Category/Category";
 
 const CatalogFilterList = ({
   transmission,
@@ -13,7 +14,7 @@ const CatalogFilterList = ({
   microwave,
   gas,
   water,
- form,
+  form,
 }) => {
   function getFilterList() {
     return {
@@ -31,7 +32,7 @@ const CatalogFilterList = ({
       },
       Bathroom: {
         value: bathroom,
-        iconId: "icon-bathroom",
+        iconId: "icon-bi_droplet",
       },
       Kitchen: {
         value: kitchen,
@@ -64,35 +65,26 @@ const CatalogFilterList = ({
       VehicleType: {
         value: form,
         iconId:
-          (form === "Van" && "icon-bi_grid-1x2") ||
-          (form === "Fully Integrated" && "icon-bi_grid") ||
-          (form === "Alcove" && "icon-bi_grid-3x3-gap"),
+          (form === "panelTruck" && "icon-bi_grid-1x2") ||
+          (form === "fullyIntegrated" && "icon-bi_grid") ||
+          (form === "alcove" && "icon-bi_grid-3x3-gap"),
       },
     };
   }
 
-  const filterList = getFilterList(
-    transmission,
-    engine,
-    AC,
-    bathroom,
-    kitchen,
-    TV,
-    radio,
-    refrigerator,
-    microwave,
-    gas,
-    water,
-    form
-  );
+  const filterList = getFilterList();
 
   return (
-    <ul>
-      {Object.entries(filterList).map(([key, { value }]) =>
+    <ul className={css.filterList}>
+      {Object.entries(filterList).map(([key, { value, iconId }]) =>
         key === "Transmission" || key === "VehicleType" ? (
-          <li key={key}>{String(value)}</li>
+          <CatalogFilterListItem key={key} id={iconId}>
+            {String(value)}
+          </CatalogFilterListItem>
         ) : (
-          <li key={key}>{key}</li>
+          <CatalogFilterListItem key={key} id={iconId}>
+            {key}
+          </CatalogFilterListItem>
         )
       )}
     </ul>

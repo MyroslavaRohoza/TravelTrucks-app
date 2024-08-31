@@ -1,0 +1,16 @@
+.button{
+    border-radius: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 16px 60px;
+    background-color: var(--light-tomato);
+    border: none;
+   color: var(--white);
+    
+}
+.button:hover,
+.button:focus{
+     background-color: var(--tomato);
+}

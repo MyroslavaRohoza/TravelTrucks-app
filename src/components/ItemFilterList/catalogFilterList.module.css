@@ -1,0 +1,6 @@
+.filterList {
+  width: 524px;
+   display: flex;
+  flex-wrap: wrap; 
+  gap: 8px;
+}

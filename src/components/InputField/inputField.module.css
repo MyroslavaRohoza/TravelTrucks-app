@@ -1,0 +1,7 @@
+.inputField{
+    border: none;
+    outline: none;
+    padding: 18px 0px 14px 18px;
+    background-color: var(--white-smoke);
+    border-radius: 12px;
+}

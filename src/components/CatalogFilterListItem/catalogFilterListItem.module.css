@@ -1,0 +1,9 @@
+.catalogFilterItem {
+  display: flex;
+  padding: 12px 18px;
+  background-color: var(--cloud-white);
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 100px;
+}

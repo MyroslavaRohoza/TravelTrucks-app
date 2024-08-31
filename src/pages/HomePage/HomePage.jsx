@@ -1,6 +1,6 @@
 import css from "./homePage.module.css";
-import Button from "../../components/Button/Button.jsx";
 import { Link } from "react-router-dom";
+import RedButton from "../../components/RedButton/RedButton.jsx";
 const HomePage = () => {
   return (
     <section className={css.homePageSection}>
@@ -12,15 +12,7 @@ const HomePage = () => {
           You can find everything you want in our catalog
         </h2>
         <Link to="/catalog">
-          <Button
-            btnColor="var(--light-tomato)"
-            textColor="var(--white)"
-            className={css.btn}
-            padding="16px 60px"
-            border="none"
-          >
-            View Now
-          </Button>
+          <RedButton>View Now</RedButton>
         </Link>
       </div>
     </section>

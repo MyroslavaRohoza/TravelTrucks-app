@@ -1,12 +1,11 @@
-
-import Icon from '../Icon/Icon';
+import Icon from "../Icon/Icon";
 
 const Category = ({
-  children,
   iconId,
+  children,
   iconWidth = 20,
   iconHeight = 20,
-  fill,
+  fill = "var(--charcoal)",
   stroke,
 }) => {
   return (
@@ -18,9 +17,9 @@ const Category = ({
         fill={fill}
         stroke={stroke}
       />
-      {children}
+      <p>{children}</p>
     </>
   );
 };
 
-export default Category
+export default Category;

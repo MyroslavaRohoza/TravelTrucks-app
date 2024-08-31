@@ -1,13 +1,30 @@
-.catalogList {
+/* .catalogList {
+  display: grid;
+  grid-template-columns:auto 1fr;
+  grid-row-gap: 32px;
+    padding: 48px 64px 0 64px;
+} */
+.catalogMainContainer{
+ background-color: var(--white);
+ display: grid;
+
+   padding: 48px 64px 0 64px;
+}
+
+.catalogList{
   display: grid;
   grid-template-columns: 1fr;
   grid-row-gap: 32px;
+ 
 }
 
-.catalogueContainer {
-  /* display: grid;
-  grid-template-columns: repeat(2, auto); */
-
+.catalogContainer {
   display: flex;
   gap: 64px;
+}
+
+.catalogWrapper {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-column-gap: 64px;
 }

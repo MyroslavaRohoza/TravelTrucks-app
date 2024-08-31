@@ -18,7 +18,9 @@
 
 p,
 h1,
-h2 {
+h2,
+h3,
+h4 {
   margin: 0;
 }
 
@@ -50,13 +52,13 @@ body {
   margin: 0;
 }
 
-/* img {
+img {
   display: block;
-} */
-
-section {
-  padding: 0 64px 0 64px;
 }
+
+/* section {
+  padding: 0 64px 0 64px;
+} */
 
 .captionText {
   font-weight: 500;

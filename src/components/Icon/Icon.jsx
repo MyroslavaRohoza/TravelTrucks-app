@@ -5,7 +5,8 @@ const Icon = ({
   width,
   height,
   fill ,
-  stroke ,
+  stroke,
+   addClass='',
   ...props
 }) => (
   <svg
@@ -14,7 +15,7 @@ const Icon = ({
     fill={fill}
     stroke={stroke}
     aria-hidden="true"
-    className={css.icon}
+    className={`${addClass} ${css.icon}`}
     {...props}
   >
     <use xlinkHref={`src/icons/sprite.svg#${id}`} />

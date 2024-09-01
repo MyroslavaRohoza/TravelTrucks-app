@@ -8,6 +8,7 @@ import { selectCampersCollection } from "../../redux/campers/selectors";
 import InputField from "../../components/InputField/InputField";
 import VehicleFilterList from "../../components/VehicleFilterList/VehicleFilterList";
 import { vehicleEquipment, vehicleType } from "../../js/vehicleEquipmentData";
+import Icon from "../../components/Icon/Icon";
 
 const CataloguePage = () => {
   const campersCollection = useSelector(selectCampersCollection);
@@ -24,11 +25,26 @@ const CataloguePage = () => {
         <aside>
           <ul>
             <li>
-              <h3>Location</h3>
-              <InputField placeholder={"City"} />
+              <label className={css.locationLabel}>
+                Location
+                <div className={css.inputContainer}>
+                  <Icon
+                    id="icon-map"
+                    width={20}
+                    height={20}
+                    fill="var(--charcoal-gray)"
+                    addClass={css.mapIcon}
+                  />
+                  <InputField
+                    placeholder="City"
+                    addClass={css.locationField}
+                    padding="18px 0px 18px 46px"
+                  />
+                </div>
+              </label>
             </li>
             <li>
-              <h3>Filters</h3>
+              <p className={css.filter}>Filters</p>
               <ul>
                 <li>
                   <h4 className={css.filterTitle}>Vehicle equipment</h4>

@@ -3,19 +3,47 @@
   font-size: 20px;
 }
 
-.filterTitle::after{
+.filterTitle::after {
   content: "";
   display: block;
   width: 100%;
   height: 1px;
   background-color: var(--light-gray);
- margin: 24px 0px;
+  margin: 24px 0px;
+}
+
+.inputContainer {
+  position: relative;
+}
+
+.mapIcon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  display: block;
+}
+
+.locationLabel {
+  color: var(--charcoal-gray);
+  font-size: 14px;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .catalogMainContainer {
   background-color: var(--white);
   display: grid;
   padding: 48px 64px 0 64px;
+}
+
+.filter {
+  color: var(--slate-gray);
+  font-weight: 500;
+  margin: 32px 0px 40px 0px;
 }
 
 .catalogList {

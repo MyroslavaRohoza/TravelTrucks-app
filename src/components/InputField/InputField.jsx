@@ -1,8 +1,19 @@
-import css from "./inputField.module.css"
-const InputField = ({placeholder, width}) => {
+import css from "./inputField.module.css";
+const InputField = ({
+  placeholder,
+  width = "100%",
+  addClass = "",
+  padding = "18px 0px 18px 18px",
+  ...props
+}) => {
   return (
-    <input className={css.inputField} placeholder={placeholder} width={width}/>
-  )
-}
+    <input
+      placeholder={placeholder}
+      style={{ width, padding }}
+      className={`${css.inputField} ${addClass}`}
+      {...props}
+    />
+  );
+};
 
-export default InputField
+export default InputField;

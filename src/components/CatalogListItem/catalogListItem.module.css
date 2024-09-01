@@ -7,59 +7,37 @@
   grid-column-gap: 24px;
 }
 
-.ratingInfo {
+.campersSummaryContainer {
   display: flex;
-  align-items: center;
-}
-
-.location {
-  margin-left: 16px;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.rating {
-  margin-left: 4px;
+  justify-content: space-between;
 }
 
 .campersInfoContainer {
-  /* display: grid; */
-  /* grid-template-areas:
-   
-  
-   
-    ;
-  grid-row-gap: 24px; */
-  /* grid-template-areas:
-    "campersInfo price select"
-    "description description ." 
-    "filterList . . "
-    "btn . ."; */
-}
-
-.campersInfo {
-  grid-area: "campersInfo";
+  display: grid;
+  grid-template-columns: auto;
+  grid-row-gap: 24px;
 }
 
 .selectBtn {
-  grid-area: "select";
+  margin-left: 12px;
+  padding: 0px;
+  align-self: start;
+  justify-self: start;
+  background-color: transparent;
+  border: none;
+  padding-top: 4px;
 }
 
-.price {
-  grid-area: "price";
+.selectBtn:active .likeIcon {
+  fill: var(--golden-yellow);
+  stroke: var(--golden-yellow);
 }
-
-.description {
-  grid-area: "description";
-}
-
-.filterList {
-  grid-area: "filterList";
-}
-
 .showMoreBtn {
-  grid-area: "btn";
+  align-self: start;
+  justify-self: start;
+}
+
+.likeIcon {
 }
 
 .campersImgThumb {
@@ -76,7 +54,5 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 525px;
+  color: var(--slate-blue);
 }
-
-

@@ -1,0 +1,36 @@
+.campersInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ratingInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.ratingContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.location,
+.reviewsInfo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.campersInfoHeader {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.reviews {
+  text-decoration: underline;
+  display: flex;
+}
+
+.campersInfo{
+    width: 100%;
+}

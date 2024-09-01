@@ -1,8 +1,9 @@
-import Category from "../Category/Category";
+import { useNavigate } from "react-router-dom";
 import Icon from "../Icon/Icon";
 import CatalogFilterList from "../ItemFilterList/CatalogFilterList";
 import RedButton from "../RedButton/RedButton";
 import css from "./catalogListItem.module.css";
+import CamperSummary from "../CamperSummary/CamperSummary";
 
 const CatalogListItem = ({
   img,
@@ -24,35 +25,39 @@ const CatalogListItem = ({
   gas,
   water,
   form,
+  id,
 }) => {
+  const navigate = useNavigate();
+
+  const handleClick = (id) => {
+    console.log("Navigating to:", id);
+    if (id) {
+      navigate(`/catalog/${id}`);
+    }
+  };
+
+  const handleSelect = () => { 
+    
+  }
+
   return (
     <li className={css.listItem}>
       <div className={css.campersImgThumb}>
         <img className={css.campersImg} src={img} alt={name} />
       </div>
       <div className={css.campersInfoContainer}>
-        <div className={css.campersInfo}>
-          <h2 className={css.campersName}>{name}</h2>
-          <div className={css.ratingInfo}>
-            <Icon
-              id="icon-Rating"
-              width={16}
-              height={16}
-              fill="var(--golden-yellow)"
-              stroke="var(--golden-yellow)"
-            />
-            <p className={css.rating}>{rating}</p>
-            <p>({reviewsCount} Reviews)</p>
-            <p className={css.location}>
-              <Icon id="icon-map" width={16} height={16} />
-              {location}
-            </p>
-          </div>
+        <div className={css.campersSummaryContainer}>
+          <CamperSummary
+            name={name}
+            rating={rating}
+            reviewsCount={reviewsCount}
+            location={location}
+            price={price}
+          />
+          <button className={css.selectBtn}>
+            <Icon id="icon-like" width={26} height={24} addClass={css.likeIcon}/>
+          </button>
         </div>
-        <p className={css.price}>€{price.toFixed(2)}</p>
-        <button className={css.selectBtn}>
-          <Icon id="icon-like" width={24} height={24} />
-        </button>
         <p className={css.description}>{description}</p>
         <div className={css.filterList}>
           <CatalogFilterList
@@ -70,7 +75,9 @@ const CatalogListItem = ({
             form={form}
           />
         </div>
-        <RedButton className={css.showMoreBtn}>Show more</RedButton>
+        <RedButton addClass={css.showMoreBtn} onClick={() => handleClick(id)}>
+          Show more
+        </RedButton>
       </div>
     </li>
   );

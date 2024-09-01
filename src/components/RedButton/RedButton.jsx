@@ -1,9 +1,10 @@
 import css from "./button.module.css";
 
-const RedButton = ({ children}) => {
+const RedButton = ({ children, onClick, addClass=''  }) => {
   return (
     <button
-      className={`${css.button} captionText`}
+      onClick={onClick}
+      className={`${css.button} captionText ${addClass}`}
     >
       {children}
     </button>

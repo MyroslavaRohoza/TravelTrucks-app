@@ -90,6 +90,7 @@ const CataloguePage = () => {
                   microwave={item.microwave}
                   gas={item.gas}
                   water={item.water}
+                  id={item.id}
                 />
               ))}
           </ul>

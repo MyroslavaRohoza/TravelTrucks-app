@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCampers } from "../../redux/campers/operations";
 import CatalogListItem from "../../components/CatalogListItem/CatalogListItem";
 import { selectCampersCollection } from "../../redux/campers/selectors";
-import Category from "../../components/Category/Category";
 import InputField from "../../components/InputField/InputField";
-import VehicleEquipmentList from "../../components/VehicleEquipmentList/VehicleEquipmentList";
+import VehicleFilterList from "../../components/VehicleFilterList/VehicleFilterList";
+import { vehicleEquipment, vehicleType } from "../../js/vehicleEquipmentData";
 
 const CataloguePage = () => {
   const campersCollection = useSelector(selectCampersCollection);
@@ -31,13 +31,18 @@ const CataloguePage = () => {
               <h3>Filters</h3>
               <ul>
                 <li>
-                  <h4>Vehicle equipment </h4>
-                  <VehicleEquipmentList />
-                  <ul>
-                    <li>Van</li>
-                    <li>Fully Integrated</li>
-                    <li>Alcove</li>
-                  </ul>
+                  <h4 className={css.filterTitle}>Vehicle equipment</h4>
+                  <VehicleFilterList
+                    vehicleInfo={vehicleEquipment}
+                    inputType={"checkbox"}
+                    inputName={"vehicleEquipment"}
+                  />
+                  <h4 className={css.filterTitle}>Vehicle type</h4>
+                  <VehicleFilterList
+                    vehicleInfo={vehicleType}
+                    inputType={"radio"}
+                    inputName={"vehicleType"}
+                  />
                 </li>
               </ul>
             </li>

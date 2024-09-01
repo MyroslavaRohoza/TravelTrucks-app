@@ -1,0 +1,34 @@
+.vehicleEquipmentList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 12px;
+  margin-bottom: 32px;
+}
+
+ .vehicleEquipmentField {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.category {
+ display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  border: 1px solid var(--light-gray);
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+
+}
+
+.vehicleEquipmentField:checked ~ .category {
+  border-color: var(--light-tomato);
+}

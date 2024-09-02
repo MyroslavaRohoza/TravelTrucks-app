@@ -28,9 +28,8 @@
   padding-top: 4px;
 }
 
-.selectBtn:active .likeIcon {
+.selectBtn:hover .likeIcon {
   fill: var(--golden-yellow);
-  stroke: var(--golden-yellow);
 }
 .showMoreBtn {
   align-self: start;

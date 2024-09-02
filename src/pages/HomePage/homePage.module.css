@@ -3,9 +3,11 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  padding-top: 260px;
+  width: inherit;
   height: calc(100vh - var(--header-height));
-  padding-top: 260px; 
+  padding: 0px 64px;
+  display: flex;
+  align-items: center;
 }
 
 .textColor {
@@ -16,12 +18,12 @@
   font-weight: 600;
 }
 
-.homePageSection h2{
+.homePageSection h2 {
   margin-bottom: 40px;
 }
 
-.btn:hover, 
-.btn:focus, 
+.btn:hover,
+.btn:focus,
 .btn:active {
   background-color: var(tomato);
 }

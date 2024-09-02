@@ -1,9 +1,9 @@
 import Icon from "../Icon/Icon";
 import css from "./CamperSummary.module.css";
 
-const CamperSummary = ({ name, rating, reviewsCount, location, price }) => {
+const CamperSummary = ({ name, rating, reviewsCount, location, price, addClass='' }) => {
   return (
-    <div className={css.campersInfo}>
+    <div className={`${css.campersInfo} ${addClass}`}>
       <div className={css.ratingInfo}>
         <h2 className={css.campersInfoHeader}>{name}</h2>
         <div className={css.ratingContainer}>

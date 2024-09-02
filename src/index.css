@@ -3,6 +3,7 @@
 :root {
   font-family: "Inter", sans-serif;
   line-height: 1.5;
+  min-width: 1440px;
 
   --charcoal: #101828;
   --slate-blue: #475467;
@@ -58,10 +59,6 @@ body {
 img {
   display: block;
 }
-
-/* section {
-  padding: 0 64px 0 64px;
-} */
 
 .captionText {
   font-weight: 500;

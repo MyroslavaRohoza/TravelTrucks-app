@@ -1,0 +1,12 @@
+.campersGallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(292px, 1fr));
+  grid-gap: 48px;
+}
+
+.campersGalleryImg {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 12px;
+}

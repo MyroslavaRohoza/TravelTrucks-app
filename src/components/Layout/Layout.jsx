@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 const Layout = ({ children }) => {
   const buildLinkClass = ({ isActive }) => {
     return clsx(
-     'captionText',
+      "captionText",
       css.captionTextColor,
       isActive && css.activeNavLink
     );

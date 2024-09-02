@@ -1,0 +1,8 @@
+.campersSummary {
+  flex-direction: column;
+  gap: 16px;
+}
+
+.campervanPageContainer {
+  padding: 48px 64px 0px 64px;
+}

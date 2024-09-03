@@ -6,3 +6,18 @@
 .campervanPageContainer {
   padding: 48px 64px 0px 64px;
 }
+
+.featuresReviewsContainer::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: var(--light-gray);
+  margin: 24px 0px;
+}
+
+.featuresReviews {
+  display: flex;
+  gap: 40px;
+  margin-top: 60px;
+}

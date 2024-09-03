@@ -1,7 +1,14 @@
 import Icon from "../Icon/Icon";
 import css from "./CamperSummary.module.css";
 
-const CamperSummary = ({ name, rating, reviewsCount, location, price, addClass='' }) => {
+const CamperSummary = ({
+  name,
+  rating,
+  reviewsCount,
+  location,
+  price,
+  addClass = "",
+}) => {
   return (
     <div className={`${css.campersInfo} ${addClass}`}>
       <div className={css.ratingInfo}>
@@ -26,7 +33,7 @@ const CamperSummary = ({ name, rating, reviewsCount, location, price, addClass='
           </p>
         </div>
       </div>
-      <h2 className={css.campersInfoHeader}>€{price.toFixed(2)}</h2>
+      <h2 className={css.campersInfoHeader}>€{price?.toFixed(2)}</h2>
     </div>
   );
 };

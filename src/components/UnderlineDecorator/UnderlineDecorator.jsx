@@ -1,4 +1,4 @@
-import css from "./FeaturesContainer.module.css";
+import css from "./underlineDecorator.module.css";
 
 const UnderlineDecorator = ({ children }) => {
   return <span className={css.underlineDecorator}>{children}</span>;

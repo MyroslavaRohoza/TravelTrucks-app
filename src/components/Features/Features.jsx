@@ -2,10 +2,11 @@ import css from "./Features.module.css";
 import CatalogFilterList from "../ItemFilterList/CatalogFilterList";
 import Vehicledetails from "../Vehicledetails/Vehicledetails";
 import FeaturesContainer from "../FeaturesContainer/FeaturesContainer";
+import CamperForm from "../CamperForm/CamperForm";
 
 const Features = ({ camperFilterList, vechicleDetails }) => {
   return (
-    <div>
+    <div className={css.featuresContainer}>
       <FeaturesContainer
         backgroundColor="var(--white-smoke)"
         borderColor="var(--white-smoke)"
@@ -25,6 +26,16 @@ const Features = ({ camperFilterList, vechicleDetails }) => {
           form={camperFilterList.form}
         />
         <Vehicledetails vechicleDetails={vechicleDetails} />
+      </FeaturesContainer>
+      <FeaturesContainer
+        backgroundColor="var(--white)"
+        borderColor="var(--light-gray)"
+      >
+        <h3>Book your campervan now</h3>
+        <p className={`text ${css.connectedText}`}>
+          Stay connected! We are always ready to help you.
+        </p>
+        <CamperForm />
       </FeaturesContainer>
     </div>
   );

@@ -1,5 +1,6 @@
-import UnderlineDecorator from "./vehicledetails.module.css";
 import css from "./Vehicledetails.module.css";
+import UnderlineDecorator from "../UnderlineDecorator/UnderlineDecorator";
+
 
 const Vehicledetails = ({ vechicleDetails }) => {
   const formatMeasurement = (input) => {
@@ -8,9 +9,9 @@ const Vehicledetails = ({ vechicleDetails }) => {
 
   return (
     <div>
-      {/* <UnderlineDecorator>
+      <UnderlineDecorator>
         <h3>Vehicle details</h3>
-      </UnderlineDecorator> */}
+      </UnderlineDecorator>
       <ul className={css.vehicledetailsList}>
         <li className={css.listItem}>
           <p>Form</p>

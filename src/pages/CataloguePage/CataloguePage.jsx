@@ -5,10 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCampers } from "../../redux/campers/operations";
 import CatalogListItem from "../../components/CatalogListItem/CatalogListItem";
 import { selectCampersCollection } from "../../redux/campers/selectors";
-import InputField from "../../components/InputField/InputField";
 import VehicleFilterList from "../../components/VehicleFilterList/VehicleFilterList";
 import { vehicleEquipment, vehicleType } from "../../js/vehicleEquipmentData";
 import Icon from "../../components/Icon/Icon";
+import UnderlineDecorator from "../../components/UnderlineDecorator/UnderlineDecorator";
 
 const CataloguePage = () => {
   const campersCollection = useSelector(selectCampersCollection);
@@ -35,10 +35,10 @@ const CataloguePage = () => {
                     fill="var(--charcoal-gray)"
                     addClass={css.mapIcon}
                   />
-                  <InputField
+                  <input
+                    type="text"
                     placeholder="City"
-                    addClass={css.locationField}
-                    padding="18px 0px 18px 46px"
+                    className={`inputField ${css.locationField}`}
                   />
                 </div>
               </label>
@@ -47,13 +47,17 @@ const CataloguePage = () => {
               <p className={css.filter}>Filters</p>
               <ul>
                 <li>
-                  <h4 className={css.filterTitle}>Vehicle equipment</h4>
+                  <UnderlineDecorator>
+                    <h4 className={css.filterTitle}>Vehicle equipment</h4>
+                  </UnderlineDecorator>
                   <VehicleFilterList
                     vehicleInfo={vehicleEquipment}
                     inputType={"checkbox"}
                     inputName={"vehicleEquipment"}
                   />
-                  <h4 className={css.filterTitle}>Vehicle type</h4>
+                  <UnderlineDecorator>
+                    <h4 className={css.filterTitle}>Vehicle type</h4>
+                  </UnderlineDecorator>
                   <VehicleFilterList
                     vehicleInfo={vehicleType}
                     inputType={"radio"}

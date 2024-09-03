@@ -68,3 +68,17 @@ img {
 .text {
   color: var(--slate-blue);
 }
+
+.inputField{
+    border: none;
+    outline: none;
+    background-color: var(--white-smoke);
+    border-radius: 12px;
+    width: 100%;
+    padding: 18px 0px 18px 18px;
+}
+
+.inputField::placeholder{
+    color: var(--charcoal-gray);
+    font-size: 16px;
+}

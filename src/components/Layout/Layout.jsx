@@ -2,6 +2,7 @@ import clsx from "clsx";
 import Icon from "../Icon/Icon";
 import css from "./layout.module.css";
 import { NavLink } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 const Layout = ({ children }) => {
   const buildLinkClass = ({ isActive }) => {
@@ -26,6 +27,7 @@ const Layout = ({ children }) => {
           </NavLink>
         </nav>
       </header>
+      <Toaster position="top-right" reverseOrder={false} gutter={8} />
       <>{children}</>
     </>
   );

@@ -1,5 +1,5 @@
 import Icon from "../Icon/Icon";
-import css from "./CamperSummary.module.css";
+import css from "./camperSummary.module.css";
 
 const CamperSummary = ({
   name,

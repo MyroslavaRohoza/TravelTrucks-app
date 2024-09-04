@@ -1,4 +1,4 @@
-import css from "./Vehicledetails.module.css";
+import css from "./vehicledetails.module.css";
 import UnderlineDecorator from "../UnderlineDecorator/UnderlineDecorator";
 
 

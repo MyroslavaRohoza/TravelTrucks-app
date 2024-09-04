@@ -8,6 +8,7 @@ import CamperSummary from "../../components/CamperSummary/CamperSummary";
 import CampersGallery from "../../components/CampersGallery/CampersGallery";
 import Features from "../../components/Features/Features";
 import Reviews from "../../components/Reviews/Reviews";
+import CamperFormContainer from "../../components/CamperFormContainer/CamperFormContainer";
 
 const CampervanPage = () => {
   const camperId = useParams().id;
@@ -17,7 +18,7 @@ const CampervanPage = () => {
   }, [camperId, dispatch]);
 
   let camper = useSelector(selectCamperDetail);
-  const {description, name, rating, reviewsCount, location, price, gallery } =
+  const { description, name, rating, reviewsCount, location, price, gallery } =
     camper instanceof Object && camper;
 
   const camperFilterList = camper instanceof Object && {
@@ -50,6 +51,8 @@ const CampervanPage = () => {
     gallery[2].thumb,
   ];
 
+  const reviews = camper instanceof Object && camper.reviews;
+
   return (
     <main className={css.campervanPageContainer}>
       <section>
@@ -63,7 +66,7 @@ const CampervanPage = () => {
             addClass={css.campersSummary}
           />
         }
-        <CampersGallery photos={Array.isArray(gallery) && galleryImgArr} />
+        <CampersGallery photos={galleryImgArr} />
         <p className={`text`}>{description}</p>
         <div className={css.featuresReviewsContainer}>
           <div className={css.featuresReviews}>
@@ -75,18 +78,28 @@ const CampervanPage = () => {
             </Link>
           </div>
         </div>
-        <Routes>
-          <Route
-            path="features"
-            element={
-              <Features
-                camperFilterList={camperFilterList}
-                vechicleDetails={vechicleDetails}
+        <div className={css.featuresReviewsContent}>
+          <div>
+            <Routes>
+              <Route
+                path="features"
+                element={
+                  <Features
+                    camperFilterList={camperFilterList}
+                    vechicleDetails={vechicleDetails}
+                  />
+                }
               />
-            }
-          />
-          <Route path="reviews" element={<Reviews />} />
-        </Routes>
+              <Route
+                path="reviews"
+                element={
+                  <Reviews reviews={reviews} />
+                }
+              />
+            </Routes>
+          </div>
+          <CamperFormContainer />
+        </div>
       </section>
     </main>
   );

@@ -1,9 +1,12 @@
-.btn{
-    background-color: var(--white);
-    border: 1px solid  var(--light-gray);
-    padding: 16px 32px;
+.btn {
+  background-color: var(--white);
+  border: 1px solid var(--light-gray);
+  padding: 16px 32px;
+  border-radius: 200px;
 }
 
-.btn:hover, .btn:focus{
-    border-color: var(--tomato);
+.btn:hover,
+.btn:focus {
+  border-color: var(--tomato);
 }
+

@@ -22,7 +22,7 @@ const CatalogFilterList = ({
         value: transmission,
         iconId: "icon-diagram",
       },
-      engine: {
+      Engine: {
         value: engine,
         iconId: "icon-fuel-pump",
       },
@@ -79,11 +79,14 @@ const CatalogFilterList = ({
       {Object.entries(filterList).map(([key, { value, iconId }]) =>
         key === "Transmission" || key === "VehicleType" ? (
           <CatalogFilterListItem key={key} id={iconId}>
-            {String(value)}
+            {String(
+              typeof value === "string" &&
+                value.charAt(0).toUpperCase() + value.slice(1)
+            )}
           </CatalogFilterListItem>
         ) : (
           <CatalogFilterListItem key={key} id={iconId}>
-            {key.charAt(0).toUpperCase() + key.slice(1)}
+            {key}
           </CatalogFilterListItem>
         )
       )}

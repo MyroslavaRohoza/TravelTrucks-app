@@ -7,6 +7,12 @@ export const selectFilter = (state) => state.campers.filter;
 
 export const selectSelectedList = (state) => state.campers.selectedList;
 
-export const selectIsLoading = (state) => state.isLoading;
+export const selectIsLoading = (state) => state.campers.isLoading;
 
-export const selectError = (state) => state.error;
+export const selectError = (state) => state.campers.error;
+
+export const selectTotal = (state) => state.campers.total;
+
+export const selectCurrentPage = (state) => state.campers.currentPage;
+
+export const selectAmountPerPage = (state) => state.campers.amountPerPage;

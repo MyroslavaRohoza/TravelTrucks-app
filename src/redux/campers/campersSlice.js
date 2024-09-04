@@ -13,6 +13,7 @@ const tasksSlice = createSlice({
     builder.addCase(fetchCampers.fulfilled, (state, action) => {
       state.isLoading = false;
       state.campersCollection = action.payload.items;
+      state.total = action.payload.total;
     });
     builder.addCase(fetchCampers.rejected, (state, action) => {
       state.isLoading = false;

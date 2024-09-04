@@ -4,20 +4,37 @@ import css from "./cataloguePage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCampers } from "../../redux/campers/operations";
 import CatalogListItem from "../../components/CatalogListItem/CatalogListItem";
-import { selectCampersCollection } from "../../redux/campers/selectors";
+import { selectAmountPerPage, selectCampersCollection, selectCurrentPage, selectTotal } from "../../redux/campers/selectors";
 import VehicleFilterList from "../../components/VehicleFilterList/VehicleFilterList";
 import { vehicleEquipment, vehicleType } from "../../js/vehicleEquipmentData";
 import Icon from "../../components/Icon/Icon";
 import UnderlineDecorator from "../../components/UnderlineDecorator/UnderlineDecorator";
+import WhiteButton from "../../components/WhiteButton/WhiteButton";
 
 const CataloguePage = () => {
   const campersCollection = useSelector(selectCampersCollection);
+  const total = useSelector(selectTotal);
+  const currentPage = useSelector(selectCurrentPage);
+  const amountPerPage = useSelector(selectAmountPerPage)
+
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchCampers());
   }, [dispatch]);
+
+  const onButtonClick = (totalPage, currentPage, amount) => {
+    let page = 1;
+    const countOfPage = Math.ceil(totalPage / amount);
+
+    if (currentPage <= countOfPage) { 
+      page += 1;
+      dispatch(fetchCampers(page));
+    }
+
+
+  };
 
   return (
     <main className={css.catalogMainContainer}>
@@ -38,6 +55,7 @@ const CataloguePage = () => {
                   <input
                     type="text"
                     placeholder="City"
+                    style={{ paddingLeft: "48px" }}
                     className={`inputField ${css.locationField}`}
                   />
                 </div>
@@ -97,6 +115,7 @@ const CataloguePage = () => {
                   id={item.id}
                 />
               ))}
+            <WhiteButton addClass={css.loadMoreBtn} onClick={() => onButtonClick(total, currentPage, amountPerPage)}>Load more</WhiteButton>
           </ul>
         </section>
       </div>

@@ -1,3 +1,46 @@
-.reviewerInfo{
-    display: flex;
+.reviewerInfo {
+  display: flex;
+}
+
+.reviewerInitials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background-color: var(--white-smoke);
+  border-radius: 50%;
+  color: var(--light-tomato);
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.reviewsList {
+  display: flex;
+  gap: 4px;
+}
+
+.reviewerName {
+  font-weight: 500;
+}
+
+.reviewerInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.comment {
+  margin-top: 16px;
+}
+
+.reviewsList {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.ratingContainer {
+  display: flex;
+  gap: 4px;
 }

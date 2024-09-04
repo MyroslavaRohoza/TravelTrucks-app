@@ -4,41 +4,57 @@ import { useActionData } from "react-router-dom";
 import Icon from "../Icon/Icon";
 
 const Reviews = ({ reviews }) => {
-
   const reviewCount = (count) => {
+    const amountOfStars = 5;
     const items = [];
-    for (let i = 0; i < count; i++) {
-      items.push(
-        <li key={i}>
-          <Icon
-            id="icon-Rating"
-            width={20}
-            height={20}
-            fill="var(--charcoal-gray)"
-            stroke="var(--charcoal-gray)"
-          />
-        </li>
-      );
+    for (let i = 0; i < amountOfStars; i++) {
+      if (i < count) {
+        items.push(
+          <li key={i}>
+            <Icon
+              id="icon-Rating"
+              width={16}
+              height={16}
+              fill="var(--golden-yellow)"
+              stroke="var(--golden-yellow)"
+            />
+          </li>
+        );
+      } else {
+        items.push(
+          <li key={i}>
+            <Icon
+              id="icon-Rating"
+              width={16}
+              height={16}
+              fill="var(--white-smoke)"
+              stroke="var(--white-smoke)"
+            />
+          </li>
+        );
+      }
     }
-    return items; 
+    return items;
   };
+
   return (
     <div>
-      <ul>
+      <ul className={css.reviewsList}>
         {Array.isArray(reviews) &&
           reviews.map((review) => (
             <li key={review.id}>
               <div className={css.reviewerInfo}>
-                <div>{review.reviewer_name.charAt(0)}</div>
-                <div>
-                  <p>{review.reviewer_name}</p>
-                  <ul>
-                    {reviewCount(review.reviewer_rating).map((item)=>item)}
+                <div className={css.reviewerInitials}>
+                  <p>{review.reviewer_name.charAt(0)}</p>
+                </div>
+                <div className={css.reviewerDetails}>
+                  <p className={css.reviewerName}>{review.reviewer_name}</p>
+                  <ul className={css.ratingContainer}>
+                    {reviewCount(review.reviewer_rating).map((item) => item)}
                   </ul>
-                  <p>{review.reviewer_rating}</p>
                 </div>
               </div>
-              <p>{review.comment}</p>
+              <p className={css.comment}>{review.comment}</p>
             </li>
           ))}
       </ul>

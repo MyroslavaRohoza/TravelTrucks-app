@@ -1,14 +1,7 @@
 import css from "./icon.module.css";
+import { icons as sprite } from "../../assets/index.js";
 
-const Icon = ({
-  id,
-  width,
-  height,
-  fill ,
-  stroke,
-   addClass='',
-  ...props
-}) => (
+const Icon = ({ id, width, height, fill, stroke, addClass = "", ...props }) => (
   <svg
     width={width}
     height={height}
@@ -18,7 +11,9 @@ const Icon = ({
     className={`${addClass} ${css.icon}`}
     {...props}
   >
-    <use xlinkHref={`src/icons/sprite.svg#${id}`} />
+    <use
+      xlinkHref={`${sprite}#${id}`}
+    />
   </svg>
 );
 

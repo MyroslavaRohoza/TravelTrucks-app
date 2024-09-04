@@ -1,4 +1,4 @@
-import css from "./CampersGallery.module.css";
+import css from "./campersGallery.module.css";
 import CampersGalleryItem from "../CampersGalleryItem/CampersGalleryItem";
 
 const CampersGallery = ({ photos, id }) => {

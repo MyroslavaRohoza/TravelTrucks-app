@@ -83,7 +83,7 @@ const CatalogFilterList = ({
           </CatalogFilterListItem>
         ) : (
           <CatalogFilterListItem key={key} id={iconId}>
-            {key}
+            {key.charAt(0).toUpperCase() + key.slice(1)}
           </CatalogFilterListItem>
         )
       )}

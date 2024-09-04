@@ -26,31 +26,37 @@ const CamperForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div className={css.formContainer}>
-      <input type="text" placeholder="Name*" className="inputField" required />
-      <input
-        type="email"
-        placeholder="Email*"
-        className="inputField"
-        required
-      />
-      <input
-        type={value ? "date" : "text"}
-        id="bookingDate"
-        className="inputField"
-        onFocus={onHandleFocus}
-        onBlur={onHandleBlur}
-        name="bookingDate"
-        placeholder="Booking date*"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        required
-      />
-      <textarea
-        name="comment"
-        id="comment"
-        className={`inputField ${css.comment}`}
-        placeholder="Comment"
-      ></textarea></div>
+        <input
+          type="text"
+          placeholder="Name*"
+          className="inputField"
+          required
+        />
+        <input
+          type="email"
+          placeholder="Email*"
+          className="inputField"
+          required
+        />
+        <input
+          type={value ? "date" : "text"}
+          id="bookingDate"
+          className="inputField"
+          onFocus={onHandleFocus}
+          onBlur={onHandleBlur}
+          name="bookingDate"
+          placeholder="Booking date*"
+          value={value}
+          onChange={(event) => setValue(event.target.value)}
+          required
+        />
+        <textarea
+          name="comment"
+          id="comment"
+          className={`inputField ${css.comment}`}
+          placeholder="Comment"
+        ></textarea>
+      </div>
       <RedButton addClass={css.sendBtn}>Send</RedButton>
     </form>
   );

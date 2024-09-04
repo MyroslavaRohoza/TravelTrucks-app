@@ -70,11 +70,11 @@ const CampervanPage = () => {
         <p className={`text`}>{description}</p>
         <div className={css.featuresReviewsContainer}>
           <div className={css.featuresReviews}>
-            <Link to="features">
-              <h3>Features</h3>
+            <Link to="features" className={css.featuresReviewsLink}>
+              <h3 className={css.featuresReviewsHeader}>Features</h3>
             </Link>
-            <Link to="reviews">
-              <h3>Reviews</h3>
+            <Link to="reviews" className={css.featuresReviewsLink}>
+              <h3 className={css.featuresReviewsHeader}>Reviews</h3>
             </Link>
           </div>
         </div>
@@ -90,12 +90,7 @@ const CampervanPage = () => {
                   />
                 }
               />
-              <Route
-                path="reviews"
-                element={
-                  <Reviews reviews={reviews} />
-                }
-              />
+              <Route path="reviews" element={<Reviews reviews={reviews} />} />
             </Routes>
           </div>
           <CamperFormContainer />

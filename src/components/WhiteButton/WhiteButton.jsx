@@ -1,7 +1,17 @@
-import css from './whiteButton.module.css'
+import React from 'react';
+import css from './whiteButton.module.css';
 
-const WhiteButton = ({ children, addClass = "", onClick }) => {
-  return <button className={`${css.btn} ${addClass}`} onClick={onClick}>{children}</button>;
-};
+const WhiteButton = React.forwardRef(({ children, addClass = "", onClick, ...otherProps }, ref) => {
+  return (
+    <button
+      className={`${css.btn} ${addClass}`}
+      onClick={onClick}
+      ref={ref} 
+      {...otherProps}
+    >
+      {children}
+    </button>
+  );
+});
 
-export default WhiteButton
+export default WhiteButton;

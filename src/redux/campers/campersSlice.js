@@ -1,10 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { initialState } from "../initialState";
-import { fetchCamperById, fetchCampers } from "./operations";
+import {
+  fetchCamperById,
+  fetchCampers,
+  fetchOthersCampers,
+} from "./operations";
 
 const tasksSlice = createSlice({
   name: "campers",
   initialState: initialState.campers,
+  reducers: {
+    setCurrentPage(state, action) {
+      state.currentPage = action.payload;
+    }
+  },
 
   extraReducers: (builder) => {
     builder.addCase(fetchCampers.pending, (state) => {
@@ -30,7 +39,20 @@ const tasksSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     });
+    builder.addCase(fetchOthersCampers.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(fetchOthersCampers.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.campersCollection.push(...action.payload.items);
+    });
+    builder.addCase(fetchOthersCampers.rejected, (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    });
   },
 });
 
 export const campersReducer = tasksSlice.reducer;
+
+export const { setCurrentPage } = tasksSlice.actions;

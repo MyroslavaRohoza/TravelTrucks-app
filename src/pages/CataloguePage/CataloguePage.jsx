@@ -1,22 +1,33 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Button from "../../components/RedButton/RedButton";
 import css from "./cataloguePage.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCampers } from "../../redux/campers/operations";
+import {
+  fetchCampers,
+  fetchOthersCampers,
+} from "../../redux/campers/operations";
 import CatalogListItem from "../../components/CatalogListItem/CatalogListItem";
-import { selectAmountPerPage, selectCampersCollection, selectCurrentPage, selectTotal } from "../../redux/campers/selectors";
+import {
+  selectAmountPerPage,
+  selectCampersCollection,
+  selectCurrentPage,
+  selectTotal,
+} from "../../redux/campers/selectors";
 import VehicleFilterList from "../../components/VehicleFilterList/VehicleFilterList";
 import { vehicleEquipment, vehicleType } from "../../js/vehicleEquipmentData";
 import Icon from "../../components/Icon/Icon";
 import UnderlineDecorator from "../../components/UnderlineDecorator/UnderlineDecorator";
 import WhiteButton from "../../components/WhiteButton/WhiteButton";
+import { useRef } from "react";
+import { setCurrentPage } from "../../redux/campers/campersSlice";
 
 const CataloguePage = () => {
+  const currentPage = useSelector(selectCurrentPage);
   const campersCollection = useSelector(selectCampersCollection);
   const total = useSelector(selectTotal);
-  const currentPage = useSelector(selectCurrentPage);
-  const amountPerPage = useSelector(selectAmountPerPage)
+  const amount = useSelector(selectAmountPerPage);
 
+  const loadMoreButtonRef = useRef(null);
 
   const dispatch = useDispatch();
 
@@ -25,15 +36,41 @@ const CataloguePage = () => {
   }, [dispatch]);
 
   const onButtonClick = (totalPage, currentPage, amount) => {
-    let page = 1;
     const countOfPage = Math.ceil(totalPage / amount);
+    console.log("countOfPage", countOfPage);
+    const nextPage = currentPage + 1;
 
-    if (currentPage <= countOfPage) { 
-      page += 1;
-      dispatch(fetchCampers(page));
+    if (countOfPage % 2 === 0) {
+      if (currentPage <countOfPage) {
+        console.log("currentPage", currentPage);
+        // const nextPage = currentPage + 1;
+        dispatch(setCurrentPage(nextPage));
+        dispatch(fetchOthersCampers(nextPage));
+        loadMoreButtonRef.current.style.display = "none";
+      }
+    } else {
+      if (currentPage <= countOfPage) {
+        const nextPage = currentPage + 1;
+        dispatch(setCurrentPage(nextPage));
+        dispatch(fetchOthersCampers(nextPage));
+        loadMoreButtonRef.current.style.display = "none";
+      }
+      if (currentPage === countOfPage) {
+        loadMoreButtonRef.current.style.display = "none";
+      }
     }
 
-
+    // if (currentPage === 1) {
+    //   if (loadMoreButtonRef.current) {
+    //     loadMoreButtonRef.current.style.display = "block";
+    //   }
+    // } else if (currentPage < countOfPage) {
+    //     const nextPage = currentPage + 1;
+    //   dispatch(setCurrentPage(nextPage));
+    //   dispatch(fetchOthersCampers(nextPage));
+    // } else if (currentPage === countOfPage) {
+    //   loadMoreButtonRef.current.style.display = "none";
+    // }
   };
 
   return (
@@ -115,7 +152,13 @@ const CataloguePage = () => {
                   id={item.id}
                 />
               ))}
-            <WhiteButton addClass={css.loadMoreBtn} onClick={() => onButtonClick(total, currentPage, amountPerPage)}>Load more</WhiteButton>
+            <WhiteButton
+              addClass={css.loadMoreBtn}
+              onClick={() => onButtonClick(total, currentPage, amount)}
+              ref={loadMoreButtonRef}
+            >
+              Load more
+            </WhiteButton>
           </ul>
         </section>
       </div>

@@ -19,7 +19,7 @@ import Icon from "../../components/Icon/Icon";
 import UnderlineDecorator from "../../components/UnderlineDecorator/UnderlineDecorator";
 import WhiteButton from "../../components/WhiteButton/WhiteButton";
 import { useRef } from "react";
-import { setCurrentPage } from "../../redux/campers/campersSlice";
+import { setCurrentPage, selectFilter } from "../../redux/campers/campersSlice";
 
 const CataloguePage = () => {
   const currentPage = useSelector(selectCurrentPage);
@@ -73,7 +73,7 @@ const CataloguePage = () => {
       }
     }
 
-    console.log(data);
+    dispatch(selectFilter(data));
   };
 
   return (

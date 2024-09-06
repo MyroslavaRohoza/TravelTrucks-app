@@ -58,4 +58,4 @@ const tasksSlice = createSlice({
 
 export const campersReducer = tasksSlice.reducer;
 
-export const { setCurrentPage, setFilter } = tasksSlice.actions;
+export const { setCurrentPage, selectFilter } = tasksSlice.actions;

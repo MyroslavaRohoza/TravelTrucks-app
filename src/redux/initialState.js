@@ -1,7 +1,7 @@
 export const initialState = {
   campers: {
     campersCollection: null,
-    filter: "",
+    filter: {},
     total: null,
     currentPage: 1,
     amountPerPage: 4,

@@ -12,6 +12,9 @@ const tasksSlice = createSlice({
   reducers: {
     setCurrentPage(state, action) {
       state.currentPage = action.payload;
+    },
+    selectFilter(state, action) {
+      state.filter = action.payload;
     }
   },
 
@@ -55,4 +58,4 @@ const tasksSlice = createSlice({
 
 export const campersReducer = tasksSlice.reducer;
 
-export const { setCurrentPage } = tasksSlice.actions;
+export const { setCurrentPage, setFilter } = tasksSlice.actions;

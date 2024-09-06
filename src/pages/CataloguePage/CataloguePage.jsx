@@ -49,56 +49,86 @@ const CataloguePage = () => {
     isLastPage && (loadMoreButtonRef.current.style.display = "none");
   };
 
+  const onFormSubmit = (evt) => {
+    evt.preventDefault();
+
+    const form = evt.target;
+    const data = {
+      equipment: {},
+      type: {
+        form: "",
+      },
+      location: "",
+    };
+
+    for (let element of form.elements) {
+      if (element.type === "checkbox" && element.checked) {
+        data.equipment[element.value] = true;
+      }
+
+      if (element.type === "radio" && element.checked) {
+        data.type.form = form.elements.form.value;
+      } else {
+        data.location = form.elements.location.value;
+      }
+    }
+
+    console.log(data);
+  };
+
   return (
     <main className={css.catalogMainContainer}>
       <div className={css.catalogWrapper}>
         <aside>
-          <ul>
-            <li>
-              <label className={css.locationLabel}>
-                Location
-                <div className={css.inputContainer}>
-                  <Icon
-                    id="icon-map"
-                    width={20}
-                    height={20}
-                    fill="var(--charcoal-gray)"
-                    addClass={css.mapIcon}
-                  />
-                  <input
-                    type="text"
-                    placeholder="City"
-                    style={{ paddingLeft: "48px" }}
-                    className={`inputField ${css.locationField}`}
-                  />
-                </div>
-              </label>
-            </li>
-            <li>
-              <p className={css.filter}>Filters</p>
-              <ul>
-                <li>
-                  <UnderlineDecorator>
-                    <h4 className={css.filterTitle}>Vehicle equipment</h4>
-                  </UnderlineDecorator>
-                  <VehicleFilterList
-                    vehicleInfo={vehicleEquipment}
-                    inputType={"checkbox"}
-                    inputName={"vehicleEquipment"}
-                  />
-                  <UnderlineDecorator>
-                    <h4 className={css.filterTitle}>Vehicle type</h4>
-                  </UnderlineDecorator>
-                  <VehicleFilterList
-                    vehicleInfo={vehicleType}
-                    inputType={"radio"}
-                    inputName={"vehicleType"}
-                  />
-                </li>
-              </ul>
-            </li>
-            <Button>Search</Button>
-          </ul>
+          <form onSubmit={onFormSubmit}>
+            <ul>
+              <li>
+                <label className={css.locationLabel}>
+                  Location
+                  <div className={css.inputContainer}>
+                    <Icon
+                      id="icon-map"
+                      width={20}
+                      height={20}
+                      fill="var(--charcoal-gray)"
+                      addClass={css.mapIcon}
+                    />
+                    <input
+                      type="text"
+                      placeholder="City"
+                      style={{ paddingLeft: "48px" }}
+                      name="location"
+                      className={`inputField ${css.locationField}`}
+                    />
+                  </div>
+                </label>
+              </li>
+              <li>
+                <p className={css.filter}>Filters</p>
+                <ul>
+                  <li>
+                    <UnderlineDecorator>
+                      <h4 className={css.filterTitle}>Vehicle equipment</h4>
+                    </UnderlineDecorator>
+                    <VehicleFilterList
+                      vehicleInfo={vehicleEquipment}
+                      inputType="checkbox"
+                      inputName="equipment"
+                    />
+                    <UnderlineDecorator>
+                      <h4 className={css.filterTitle}>Vehicle type</h4>
+                    </UnderlineDecorator>
+                    <VehicleFilterList
+                      vehicleInfo={vehicleType}
+                      inputType="radio"
+                      inputName="form"
+                    />
+                  </li>
+                </ul>
+              </li>
+              <Button>Search</Button>
+            </ul>
+          </form>
         </aside>
         <section>
           <ul className={css.catalogList}>

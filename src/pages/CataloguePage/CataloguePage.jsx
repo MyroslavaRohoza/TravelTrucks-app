@@ -35,42 +35,18 @@ const CataloguePage = () => {
     dispatch(fetchCampers());
   }, [dispatch]);
 
-  const onButtonClick = (totalPage, currentPage, amount) => {
-    const countOfPage = Math.ceil(totalPage / amount);
-    console.log("countOfPage", countOfPage);
+  const onButtonClick = async (total, currentPage, amount) => {
     const nextPage = currentPage + 1;
 
-    if (countOfPage % 2 === 0) {
-      if (currentPage <countOfPage) {
-        console.log("currentPage", currentPage);
-        // const nextPage = currentPage + 1;
-        dispatch(setCurrentPage(nextPage));
-        dispatch(fetchOthersCampers(nextPage));
-        loadMoreButtonRef.current.style.display = "none";
-      }
-    } else {
-      if (currentPage <= countOfPage) {
-        const nextPage = currentPage + 1;
-        dispatch(setCurrentPage(nextPage));
-        dispatch(fetchOthersCampers(nextPage));
-        loadMoreButtonRef.current.style.display = "none";
-      }
-      if (currentPage === countOfPage) {
-        loadMoreButtonRef.current.style.display = "none";
-      }
-    }
+    dispatch(setCurrentPage(nextPage));
+    dispatch(fetchOthersCampers(nextPage));
+    checkPageStatus(total, nextPage, amount);
+  };
 
-    // if (currentPage === 1) {
-    //   if (loadMoreButtonRef.current) {
-    //     loadMoreButtonRef.current.style.display = "block";
-    //   }
-    // } else if (currentPage < countOfPage) {
-    //     const nextPage = currentPage + 1;
-    //   dispatch(setCurrentPage(nextPage));
-    //   dispatch(fetchOthersCampers(nextPage));
-    // } else if (currentPage === countOfPage) {
-    //   loadMoreButtonRef.current.style.display = "none";
-    // }
+  const checkPageStatus = (total, currentPage, amount) => {
+    const countOfPage = Math.ceil(total / amount);
+    const isLastPage = currentPage === countOfPage;
+    isLastPage && (loadMoreButtonRef.current.style.display = "none");
   };
 
   return (

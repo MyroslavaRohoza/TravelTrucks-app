@@ -3,11 +3,16 @@ export const checkInputValue = (key) => {
 };
 
 export const findCampersByFilter = (parameters) => {
-  const parArr = ["?"];
-  for (const key in parameters) {
-    for (const parameter in parameters[key]) {
-      parArr.push(`${parameter}=${parameters[key][parameter]}`);
+  if (typeof parameters === "object") {
+    const parArr = [];
+    for (const key in parameters) {
+      for (const parameter in parameters[key]) {
+        parArr.push(`${parameter}=${parameters[key][parameter]}`);
+      }
     }
+    console.log(parArr.join("&"));
+    return parArr.join("&");
+  } else {
+    return "";
   }
- return parArr.join("&");
 };

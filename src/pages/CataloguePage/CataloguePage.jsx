@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import Button from "../../components/RedButton/RedButton";
+import { useEffect } from "react";
 import css from "./cataloguePage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -20,7 +19,7 @@ import UnderlineDecorator from "../../components/UnderlineDecorator/UnderlineDec
 import WhiteButton from "../../components/WhiteButton/WhiteButton";
 import { useRef } from "react";
 import { setCurrentPage, selectFilter } from "../../redux/campers/campersSlice";
-import { findCampersByFilter } from "../../js/utils";
+import RedButton from "../../components/RedButton/RedButton";
 
 const CataloguePage = () => {
   const currentPage = useSelector(selectCurrentPage);
@@ -37,7 +36,11 @@ const CataloguePage = () => {
     dispatch(fetchCampers());
   }, [dispatch]);
 
-  const onButtonClick = async (total, currentPage, amount) => {
+  useEffect(() => {
+    checkTotal(total,amount);
+  }, [total, amount]);
+
+  const onButtonClick = (total, currentPage, amount) => {
     const nextPage = currentPage + 1;
 
     dispatch(setCurrentPage(nextPage));
@@ -47,13 +50,25 @@ const CataloguePage = () => {
 
   const checkPageStatus = (total, currentPage, amount) => {
     const countOfPage = Math.ceil(total / amount);
-    const isLastPage = currentPage === countOfPage;
-    isLastPage && (loadMoreButtonRef.current.style.display = "none");
+    const isLastPage = currentPage >= countOfPage;
+    if (loadMoreButtonRef.current) {
+      loadMoreButtonRef.current.style.display = isLastPage ? "none" : "block";
+    }
+  };
+
+  const checkTotal = (total, amount) => {
+    if (total > amount) {
+      console.log(total, " > ", amount);
+      loadMoreButtonRef.current.style.display = "block";
+    } else {
+      console.log(total, " <= ", amount);
+      loadMoreButtonRef.current.style.display = "none";
+    }
   };
 
   const onFormSubmit = (evt) => {
     evt.preventDefault();
-
+    loadMoreButtonRef.current.style.display = "block";
     const form = evt.target;
     const data = {
       equipment: {},
@@ -75,8 +90,11 @@ const CataloguePage = () => {
       }
     }
 
+    dispatch(setCurrentPage(1));
     dispatch(selectFilter(data));
-    findCampersByFilter(data);
+    dispatch(fetchCampers());
+
+    checkTotal(total, amount);
   };
 
   return (
@@ -129,7 +147,7 @@ const CataloguePage = () => {
                   </li>
                 </ul>
               </li>
-              <Button>Search</Button>
+              <RedButton>Search</RedButton>
             </ul>
           </form>
         </aside>

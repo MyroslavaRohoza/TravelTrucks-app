@@ -20,12 +20,14 @@ import UnderlineDecorator from "../../components/UnderlineDecorator/UnderlineDec
 import WhiteButton from "../../components/WhiteButton/WhiteButton";
 import { useRef } from "react";
 import { setCurrentPage, selectFilter } from "../../redux/campers/campersSlice";
+import { findCampersByFilter } from "../../js/utils";
 
 const CataloguePage = () => {
   const currentPage = useSelector(selectCurrentPage);
   const campersCollection = useSelector(selectCampersCollection);
   const total = useSelector(selectTotal);
   const amount = useSelector(selectAmountPerPage);
+  const filter = useSelector(selectFilter);
 
   const loadMoreButtonRef = useRef(null);
 
@@ -58,7 +60,7 @@ const CataloguePage = () => {
       type: {
         form: "",
       },
-      location: "",
+      camperslocation: { location: "" },
     };
 
     for (let element of form.elements) {
@@ -69,11 +71,12 @@ const CataloguePage = () => {
       if (element.type === "radio" && element.checked) {
         data.type.form = form.elements.form.value;
       } else {
-        data.location = form.elements.location.value;
+        data.camperslocation.location = form.elements.location.value;
       }
     }
 
     dispatch(selectFilter(data));
+    findCampersByFilter(data);
   };
 
   return (

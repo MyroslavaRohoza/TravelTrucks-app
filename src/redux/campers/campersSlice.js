@@ -30,6 +30,7 @@ const tasksSlice = createSlice({
     builder.addCase(fetchCampers.rejected, (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
+      state.campersCollection = null;
     });
     builder.addCase(fetchCamperById.pending, (state) => {
       state.isLoading = true;

@@ -6,7 +6,7 @@ export const vehicleType = {
 export const vehicleEquipment = {
   AC: "icon-wind",
   Automatic: "icon-diagram",
-  Kithen: "icon-cup-hot",
+  Kitchen: "icon-cup-hot",
   TV: "icon-tv",
   Bathroom: "icon-bi_droplet",
   Refrigerator: "icon-refrigerator",

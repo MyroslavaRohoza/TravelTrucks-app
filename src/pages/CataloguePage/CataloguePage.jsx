@@ -10,6 +10,7 @@ import {
   selectAmountPerPage,
   selectCampersCollection,
   selectCurrentPage,
+  selectError,
   selectTotal,
 } from "../../redux/campers/selectors";
 import VehicleFilterList from "../../components/VehicleFilterList/VehicleFilterList";
@@ -26,7 +27,7 @@ const CataloguePage = () => {
   const campersCollection = useSelector(selectCampersCollection);
   const total = useSelector(selectTotal);
   const amount = useSelector(selectAmountPerPage);
-  const filter = useSelector(selectFilter);
+  const error = useSelector(selectError);
 
   const loadMoreButtonRef = useRef(null);
 
@@ -37,7 +38,7 @@ const CataloguePage = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    checkTotal(total,amount);
+    checkTotal(total, amount);
   }, [total, amount]);
 
   const onButtonClick = (total, currentPage, amount) => {
@@ -57,18 +58,18 @@ const CataloguePage = () => {
   };
 
   const checkTotal = (total, amount) => {
-    if (total > amount) {
-      console.log(total, " > ", amount);
-      loadMoreButtonRef.current.style.display = "block";
-    } else {
-      console.log(total, " <= ", amount);
-      loadMoreButtonRef.current.style.display = "none";
+    if (loadMoreButtonRef.current) {
+      if (total > amount) {
+        loadMoreButtonRef.current.style.display = "block";
+      } else {
+        loadMoreButtonRef.current.style.display = "none";
+      }
     }
   };
 
   const onFormSubmit = (evt) => {
     evt.preventDefault();
-    loadMoreButtonRef.current.style.display = "block";
+
     const form = evt.target;
     const data = {
       equipment: {},
@@ -93,8 +94,6 @@ const CataloguePage = () => {
     dispatch(setCurrentPage(1));
     dispatch(selectFilter(data));
     dispatch(fetchCampers());
-
-    checkTotal(total, amount);
   };
 
   return (
@@ -152,41 +151,45 @@ const CataloguePage = () => {
           </form>
         </aside>
         <section>
-          <ul className={css.catalogList}>
-            {Array.isArray(campersCollection) &&
-              campersCollection.map((item) => (
-                <CatalogListItem
-                  key={item.id}
-                  img={item.gallery[0].thumb}
-                  name={item.name}
-                  price={item.price}
-                  rating={item.rating}
-                  reviewsCount={item.reviews.length}
-                  location={item.location}
-                  description={item.description}
-                  form={item.form}
-                  transmission={item.transmission}
-                  engine={item.engine}
-                  AC={item.AC}
-                  bathroom={item.bathroom}
-                  kitchen={item.kitchen}
-                  TV={item.TV}
-                  radio={item.radio}
-                  refrigerator={item.refrigerator}
-                  microwave={item.microwave}
-                  gas={item.gas}
-                  water={item.water}
-                  id={item.id}
-                />
-              ))}
-            <WhiteButton
-              addClass={css.loadMoreBtn}
-              onClick={() => onButtonClick(total, currentPage, amount)}
-              ref={loadMoreButtonRef}
-            >
-              Load more
-            </WhiteButton>
-          </ul>
+          {error ? (
+            <p className={css.errorText}>No data on request</p>
+          ) : (
+            <ul className={css.catalogList}>
+              {Array.isArray(campersCollection) &&
+                campersCollection.map((item) => (
+                  <CatalogListItem
+                    key={item.id}
+                    img={item.gallery[0].thumb}
+                    name={item.name}
+                    price={item.price}
+                    rating={item.rating}
+                    reviewsCount={item.reviews.length}
+                    location={item.location}
+                    description={item.description}
+                    form={item.form}
+                    transmission={item.transmission}
+                    engine={item.engine}
+                    AC={item.AC}
+                    bathroom={item.bathroom}
+                    kitchen={item.kitchen}
+                    TV={item.TV}
+                    radio={item.radio}
+                    refrigerator={item.refrigerator}
+                    microwave={item.microwave}
+                    gas={item.gas}
+                    water={item.water}
+                    id={item.id}
+                  />
+                ))}
+              <WhiteButton
+                addClass={css.loadMoreBtn}
+                onClick={() => onButtonClick(total, currentPage, amount)}
+                ref={loadMoreButtonRef}
+              >
+                Load more
+              </WhiteButton>
+            </ul>
+          )}
         </section>
       </div>
     </main>

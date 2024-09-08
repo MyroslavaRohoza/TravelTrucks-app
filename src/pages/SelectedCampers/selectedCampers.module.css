@@ -1,0 +1,9 @@
+.selectedCampersList{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25%, 50vw));
+    grid-gap: 24px;
+}
+
+.selectedCampersContainer{
+    padding: 48px 64px 0px 64px;
+}

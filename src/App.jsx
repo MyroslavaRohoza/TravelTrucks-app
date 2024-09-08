@@ -7,6 +7,7 @@ import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import Layout from "./components/Layout/Layout.jsx";
 import Features from "./components/Features/Features.jsx";
 import Reviews from "./components/Reviews/Reviews.jsx";
+import SelectedCampers from "./pages/SelectedCampers/SelectedCampers.jsx";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/catalog" element={<CataloguePage />} />
+        <Route path="/favorites" element={<SelectedCampers />} />
         <Route path="/catalog/:id" element={<CampervanPage />}>
           <Route path="features" element={<Features />} />
           <Route path="reviews" element={<Reviews />} />

@@ -24,6 +24,7 @@ import { useRef } from "react";
 import { setCurrentPage, selectFilter } from "../../redux/campers/campersSlice";
 import RedButton from "../../components/RedButton/RedButton";
 import Loader from "../../components/Loader/Loader";
+import SelectedCampers from "../SelectedCampers/SelectedCampers";
 
 const CataloguePage = () => {
   const currentPage = useSelector(selectCurrentPage);
@@ -194,6 +195,7 @@ const CataloguePage = () => {
               </WhiteButton>
             </ul>
           )}
+          <SelectedCampers />
         </section>
       </div>
     </main>

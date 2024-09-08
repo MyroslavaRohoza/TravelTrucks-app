@@ -25,6 +25,9 @@ const Layout = ({ children }) => {
           <NavLink to="/catalog" className={buildLinkClass}>
             Catalog
           </NavLink>
+          <NavLink to="/favorites" className={buildLinkClass}>
+            Favorites
+          </NavLink>
         </nav>
       </header>
       <Toaster position="top-right" reverseOrder={false} gutter={8} />

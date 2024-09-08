@@ -36,10 +36,6 @@ const CatalogListItem = ({
     }
   };
 
-  const handleSelect = () => { 
-    
-  }
-
   return (
     <li className={css.listItem}>
       <div className={css.campersImgThumb}>

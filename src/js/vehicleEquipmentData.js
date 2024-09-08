@@ -5,7 +5,7 @@ export const vehicleType = {
 };
 export const vehicleEquipment = {
   AC: "icon-wind",
-  Automatic: "icon-diagram",
+  // Transmission: "icon-diagram",
   Kitchen: "icon-cup-hot",
   TV: "icon-tv",
   Bathroom: "icon-bi_droplet",

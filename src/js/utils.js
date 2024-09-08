@@ -8,9 +8,11 @@ export const findCampersByFilter = (parameters) => {
     for (const key in parameters) {
       for (const parameter in parameters[key]) {
         parArr.push(
-          `${parameter.length > 2 ? parameter.toLowerCase() : parameter}=${
-            parameters[key][parameter]
-          }`
+          `${
+            parameter === parameter.toUpperCase()
+              ? parameter
+              : parameter.toLowerCase()
+          }=${parameters[key][parameter]}`
         );
       }
     }

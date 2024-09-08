@@ -77,11 +77,12 @@ const CatalogFilterList = ({
   return (
     <ul className={css.filterList}>
       {Object.entries(filterList).map(([key, { value, iconId }]) =>
-        key === "Transmission" || key === "VehicleType" ? (
+        key === "Transmission" || key === "VehicleType" || key === "Engine" ? (
           <CatalogFilterListItem key={key} id={iconId}>
             {String(
               typeof value === "string" &&
-                value.charAt(0).toUpperCase() + value.slice(1)
+                value.charAt(0).toUpperCase() +
+                  value.slice(1).replace(/([a-z])([A-Z])/g, "$1 $2")
             )}
           </CatalogFilterListItem>
         ) : (

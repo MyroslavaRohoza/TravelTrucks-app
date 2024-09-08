@@ -15,9 +15,15 @@ const tasksSlice = createSlice({
     },
     selectFilter(state, action) {
       state.filter = action.payload;
-    }
+    },
+    selectedList(state, action) {
+      const id = action.payload;
+      const campersList = state.campersCollection;
+      const selectedItem = campersList.find((item) => item.id === id);
+      const filteredList = state.selectedList.filter((item) => item.id !== id);
+      state.selectedList = [...filteredList, selectedItem];
+    },
   },
-
   extraReducers: (builder) => {
     builder.addCase(fetchCampers.pending, (state) => {
       state.isLoading = true;
@@ -59,4 +65,5 @@ const tasksSlice = createSlice({
 
 export const campersReducer = tasksSlice.reducer;
 
-export const { setCurrentPage, selectFilter } = tasksSlice.actions;
+export const { setCurrentPage, selectFilter, selectedList } =
+  tasksSlice.actions;

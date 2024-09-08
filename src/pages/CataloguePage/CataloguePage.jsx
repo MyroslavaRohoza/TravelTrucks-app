@@ -11,6 +11,8 @@ import {
   selectCampersCollection,
   selectCurrentPage,
   selectError,
+  selectIsLoading,
+  selectSelectedList,
   selectTotal,
 } from "../../redux/campers/selectors";
 import VehicleFilterList from "../../components/VehicleFilterList/VehicleFilterList";
@@ -21,6 +23,7 @@ import WhiteButton from "../../components/WhiteButton/WhiteButton";
 import { useRef } from "react";
 import { setCurrentPage, selectFilter } from "../../redux/campers/campersSlice";
 import RedButton from "../../components/RedButton/RedButton";
+import Loader from "../../components/Loader/Loader";
 
 const CataloguePage = () => {
   const currentPage = useSelector(selectCurrentPage);
@@ -28,10 +31,10 @@ const CataloguePage = () => {
   const total = useSelector(selectTotal);
   const amount = useSelector(selectAmountPerPage);
   const error = useSelector(selectError);
-
   const loadMoreButtonRef = useRef(null);
-
+  const loading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
+
 
   useEffect(() => {
     dispatch(fetchCampers());
@@ -69,7 +72,7 @@ const CataloguePage = () => {
 
   const onFormSubmit = (evt) => {
     evt.preventDefault();
-
+    selectFilter({});
     const form = evt.target;
     const data = {
       equipment: {},
@@ -181,6 +184,7 @@ const CataloguePage = () => {
                     id={item.id}
                   />
                 ))}
+              {loading && <Loader />}
               <WhiteButton
                 addClass={css.loadMoreBtn}
                 onClick={() => onButtonClick(total, currentPage, amount)}

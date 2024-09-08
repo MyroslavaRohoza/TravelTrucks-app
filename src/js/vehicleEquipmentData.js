@@ -1,5 +1,5 @@
 export const vehicleType = {
-  Van: "icon-bi_grid-1x2",
+  "Panel Truck": "icon-bi_grid-1x2",
   "Fully Integrated": "icon-bi_grid",
   Alcove: "icon-bi_grid-3x3-gap",
 };

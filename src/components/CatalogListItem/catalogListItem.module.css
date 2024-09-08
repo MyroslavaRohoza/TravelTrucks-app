@@ -29,7 +29,11 @@
 }
 
 .selectBtn:hover .likeIcon {
-  fill: var(--golden-yellow);
+  fill: var(--light-tomato);
+}
+.selected{
+  fill: var(--light-tomato);
+  scale: 1.2;
 }
 .showMoreBtn {
   align-self: start;

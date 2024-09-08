@@ -7,18 +7,21 @@ export const findCampersByFilter = (parameters) => {
     const parArr = [];
     for (const key in parameters) {
       for (const parameter in parameters[key]) {
-        parArr.push(
-          `${
-            parameter === parameter.toUpperCase()
-              ? parameter
-              : parameter.toLowerCase()
-          }=${parameters[key][parameter]}`
-        );
+        if (!parameters[key][parameter]) {
+          break;
+        } else {
+          parArr.push(
+            `${
+              parameter === parameter.toUpperCase()
+                ? parameter
+                : parameter.toLowerCase()
+            }=${parameters[key][parameter]}`
+          );
+        }
       }
     }
-    console.log(parArr.join("&"));
     return parArr.join("&");
   } else {
-    return "";
+    return;
   }
 };

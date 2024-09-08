@@ -4,6 +4,9 @@ import CatalogFilterList from "../ItemFilterList/CatalogFilterList";
 import RedButton from "../RedButton/RedButton";
 import css from "./catalogListItem.module.css";
 import CamperSummary from "../CamperSummary/CamperSummary";
+import { useRef } from "react";
+import { selectedList } from "../../redux/campers/campersSlice";
+import { useDispatch } from "react-redux";
 
 const CatalogListItem = ({
   img,
@@ -28,12 +31,18 @@ const CatalogListItem = ({
   id,
 }) => {
   const navigate = useNavigate();
+  const selectedBtnRef = useRef(null);
+  const dispatch = useDispatch();
 
   const handleClick = (id) => {
-    console.log("Navigating to:", id);
     if (id) {
       navigate(`/catalog/${id}`);
     }
+  };
+
+  const handleSelectBtnClick = (id) => {
+    dispatch(selectedList(id));
+    selectedBtnRef.current.classList.toggle(css.selected);
   };
 
   return (
@@ -50,8 +59,17 @@ const CatalogListItem = ({
             location={location}
             price={price}
           />
-          <button className={css.selectBtn}>
-            <Icon id="icon-like" width={26} height={24} addClass={css.likeIcon}/>
+          <button
+            className={css.selectBtn}
+            onClick={() => handleSelectBtnClick(id)}
+          >
+            <Icon
+              id="icon-like"
+              ref={selectedBtnRef}
+              width={26}
+              height={24}
+              addClass={css.likeIcon}
+            />
           </button>
         </div>
         <p className={css.description}>{description}</p>

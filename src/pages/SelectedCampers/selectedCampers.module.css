@@ -1,6 +1,6 @@
 .selectedCampersList{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25%, 50vw));
+    grid-template-columns: repeat(2, minmax(888px, 50%));
     grid-gap: 24px;
 }
 

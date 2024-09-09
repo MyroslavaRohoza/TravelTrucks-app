@@ -2,8 +2,6 @@ import css from "./features.module.css";
 import CatalogFilterList from "../ItemFilterList/CatalogFilterList";
 import Vehicledetails from "../Vehicledetails/Vehicledetails";
 import FeaturesContainer from "../FeaturesContainer/FeaturesContainer";
-import CamperForm from "../CamperForm/CamperForm";
-import CamperFormContainer from "../CamperFormContainer/CamperFormContainer";
 
 const Features = ({ camperFilterList, vechicleDetails }) => {
   return (

@@ -12,7 +12,6 @@ import {
   selectCurrentPage,
   selectError,
   selectIsLoading,
-  selectSelectedList,
   selectTotal,
 } from "../../redux/campers/selectors";
 import VehicleFilterList from "../../components/VehicleFilterList/VehicleFilterList";
@@ -195,7 +194,6 @@ const CataloguePage = () => {
               </WhiteButton>
             </ul>
           )}
-          <SelectedCampers />
         </section>
       </div>
     </main>

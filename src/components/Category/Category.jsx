@@ -1,5 +1,5 @@
 import Icon from "../Icon/Icon";
-
+import css from "./category.module.css";
 const Category = ({
   iconId,
   children,
@@ -17,7 +17,7 @@ const Category = ({
         fill={fill}
         stroke={stroke}
       />
-      <p>{children}</p>
+      <p className={css.categoryText}>{children}</p>
     </>
   );
 };

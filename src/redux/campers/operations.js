@@ -40,7 +40,6 @@ export const fetchCamperById = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const campersList = await instance.get(id);
-      console.log(campersList.data);
       return campersList.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

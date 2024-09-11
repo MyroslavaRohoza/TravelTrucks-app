@@ -11,12 +11,12 @@ import SelectedCampers from "./pages/SelectedCampers/SelectedCampers.jsx";
 
 function App() {
   return (
-    <Layout Layout>
+    <Layout>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/catalog" element={<CataloguePage />} />
         <Route path="/favorites" element={<SelectedCampers />} />
-        <Route path="/catalog/:id" element={<CampervanPage />}>
+        <Route path="/catalog/:id/*" element={<CampervanPage />}>
           <Route path="features" element={<Features />} />
           <Route path="reviews" element={<Reviews />} />
         </Route>

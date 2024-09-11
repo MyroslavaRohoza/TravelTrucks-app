@@ -2,6 +2,7 @@ import css from "./reviews.module.css";
 import { useSelector } from "react-redux";
 import { useActionData } from "react-router-dom";
 import Icon from "../Icon/Icon";
+import { nanoid } from "@reduxjs/toolkit";
 
 const Reviews = ({ reviews }) => {
   const reviewCount = (count) => {
@@ -42,7 +43,7 @@ const Reviews = ({ reviews }) => {
       <ul className={css.reviewsList}>
         {Array.isArray(reviews) &&
           reviews.map((review) => (
-            <li key={review.id}>
+            <li key={nanoid()}>
               <div className={css.reviewerInfo}>
                 <div className={css.reviewerInitials}>
                   <p>{review.reviewer_name.charAt(0)}</p>

@@ -182,6 +182,7 @@ const CataloguePage = () => {
                     gas={item.gas}
                     water={item.water}
                     id={item.id}
+                    iconId={"icon-like"}
                   />
                 ))}
               {loading && <Loader />}

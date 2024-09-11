@@ -7,6 +7,7 @@ import CamperSummary from "../CamperSummary/CamperSummary";
 import { useRef } from "react";
 import { selectedList } from "../../redux/campers/campersSlice";
 import { useDispatch } from "react-redux";
+import MultiActionButton from "../MultiActionButton/MultiActionButton";
 
 const CatalogListItem = ({
   img,
@@ -29,6 +30,7 @@ const CatalogListItem = ({
   water,
   form,
   id,
+  iconId,
 }) => {
   const navigate = useNavigate();
   const selectedBtnRef = useRef(null);
@@ -59,18 +61,19 @@ const CatalogListItem = ({
             location={location}
             price={price}
           />
-          <button
-            className={css.selectBtn}
-            onClick={() => handleSelectBtnClick(id)}
+          <MultiActionButton
+            id={id}
+            handleSelectBtnClick={handleSelectBtnClick}
+            addClass={css.selectBtn}
           >
             <Icon
-              id="icon-like"
+              id={iconId}
               ref={selectedBtnRef}
               width={26}
               height={24}
               addClass={css.likeIcon}
             />
-          </button>
+          </MultiActionButton>
         </div>
         <p className={css.description}>{description}</p>
         <div className={css.filterList}>

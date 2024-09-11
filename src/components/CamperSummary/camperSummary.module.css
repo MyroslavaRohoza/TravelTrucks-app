@@ -11,7 +11,33 @@
 .ratingContainer {
   display: flex;
   align-items: center;
+
+  justify-content: space-between;
+}
+
+.ratingIcon {
+  display: flex;
+}
+
+.ratingContainer {
   gap: 16px;
+}
+
+@media screen and (min-width: 928px) and (max-width: 1440px) {
+  .ratingContainer {
+    gap: 16px;
+    justify-content: start;
+  }
+  .ratingContainer {
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+  }
+  .campersInfo {
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+  }
 }
 
 .location,
@@ -31,6 +57,6 @@
   display: flex;
 }
 
-.campersInfo{
-    width: 100%;
+.campersInfo {
+  width: 100%;
 }

@@ -3,8 +3,24 @@
   border-radius: 20px;
   padding: 24px;
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-column-gap: 24px;
+}
+
+.showMoreBtn {
+  align-self: center;
+  justify-self: center;
+}
+
+
+@media screen and (min-width: 1440px) {
+  .listItem {
+    grid-template-columns: 1fr 2fr;
+    grid-column-gap: 24px;
+  }
+  .showMoreBtn {
+  align-self: start;
+  justify-self: start;
+}
+
 }
 
 .campersSummaryContainer {
@@ -16,6 +32,16 @@
   display: grid;
   grid-template-columns: auto;
   grid-row-gap: 24px;
+}
+
+.campersImgThumb {
+  width: 100%;
+  height: 100%;
+}
+
+.campersImg {
+  height: 100%;
+  width: 100%;
 }
 
 .selectBtn {
@@ -31,24 +57,11 @@
 .selectBtn:hover .likeIcon {
   fill: var(--light-tomato);
 }
-.selected{
+.selected {
   fill: var(--light-tomato);
   scale: 1.2;
 }
-.showMoreBtn {
-  align-self: start;
-  justify-self: start;
-}
 
-.campersImgThumb {
-  width: 100%;
-  height: 100%;
-}
-
-.campersImg {
-  height: 100%;
-  width: 100%;
-}
 
 .description {
   white-space: nowrap;

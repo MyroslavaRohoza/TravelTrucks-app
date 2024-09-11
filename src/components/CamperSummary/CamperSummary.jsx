@@ -21,6 +21,7 @@ const CamperSummary = ({
               height={16}
               fill="var(--golden-yellow)"
               stroke="var(--golden-yellow)"
+              addClass={css.ratingIcon}
             />
             <div className={css.reviews}>
               <p className={css.rating}>{rating}</p>

@@ -8,8 +8,7 @@ const SelectedCampers = () => {
   return (
     <div className={css.selectedCampersContainer}>
       <ul className={css.selectedCampersList}>
-        {Array.isArray(selectItemsList) &&
-          selectItemsList.length > 0 &&
+        {Array.isArray(selectItemsList) && selectItemsList.length > 0 ? (
           selectItemsList.map((item) => (
             <CatalogListItem
               key={item.id}
@@ -33,8 +32,12 @@ const SelectedCampers = () => {
               gas={item.gas}
               water={item.water}
               id={item.id}
+              iconId={"icon-cross"}
             />
-          ))}
+          ))
+        ) : (
+          <p className={css.noSelectedText}>No selected campers</p>
+        )}
       </ul>
     </div>
   );

@@ -1,9 +1,10 @@
-.selectedCampersList{
-    display: grid;
-    grid-template-columns: repeat(2, minmax(888px, 50%));
-    grid-gap: 24px;
+.selectedCampersList {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-gap: 24px;
 }
 
-.selectedCampersContainer{
-    padding: 48px 64px 0px 64px;
+.selectedCampersContainer {
+  padding: 48px 64px 0px 64px;
+  width: 100%;
 }

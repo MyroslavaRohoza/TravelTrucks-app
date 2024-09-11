@@ -19,9 +19,20 @@ const tasksSlice = createSlice({
     selectedList(state, action) {
       const id = action.payload;
       const campersList = state.campersCollection;
+
       const selectedItem = campersList.find((item) => item.id === id);
-      const filteredList = state.selectedList.filter((item) => item.id !== id);
-      state.selectedList = [...filteredList, selectedItem];
+
+      if (!selectedItem) return;
+
+      const isItemSelected = state.selectedList.some((item) => item.id === id);
+
+      if (isItemSelected) {
+        state.selectedList = state.selectedList.filter(
+          (item) => item.id !== id
+        );
+      } else {
+        state.selectedList = [...state.selectedList, { ...selectedItem }];
+      }
     },
   },
   extraReducers: (builder) => {

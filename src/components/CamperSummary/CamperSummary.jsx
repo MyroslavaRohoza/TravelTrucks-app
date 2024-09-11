@@ -23,6 +23,7 @@ const CamperSummary = ({
               stroke="var(--golden-yellow)"
               addClass={css.ratingIcon}
             />
+
             <div className={css.reviews}>
               <p className={css.rating}>{rating}</p>
               <p>({reviewsCount} Reviews)</p>

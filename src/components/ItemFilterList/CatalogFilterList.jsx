@@ -1,6 +1,6 @@
 import css from "./catalogFilterList.module.css";
 import CatalogFilterListItem from "../CatalogFilterListItem/CatalogFilterListItem";
-import Category from "../Category/Category";
+import { capitalizeAndFormat } from "../../js/utils";
 
 const CatalogFilterList = ({
   transmission,
@@ -79,11 +79,7 @@ const CatalogFilterList = ({
       {Object.entries(filterList).map(([key, { value, iconId }]) =>
         key === "Transmission" || key === "VehicleType" || key === "Engine" ? (
           <CatalogFilterListItem key={key} id={iconId}>
-            {String(
-              typeof value === "string" &&
-                value.charAt(0).toUpperCase() +
-                  value.slice(1).replace(/([a-z])([A-Z])/g, "$1 $2")
-            )}
+            {typeof value === "string" && capitalizeAndFormat(value)}
           </CatalogFilterListItem>
         ) : (
           <CatalogFilterListItem key={key} id={iconId}>

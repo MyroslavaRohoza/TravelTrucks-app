@@ -28,15 +28,13 @@
     gap: 16px;
     justify-content: start;
   }
+}
+
+@media screen and (max-width: 1439px) {
   .ratingContainer {
     flex-direction: column;
     justify-content: start;
     align-items: start;
-  }
-  .campersInfo {
-    flex-direction: column;
-    justify-content: center;
-    align-items: baseline;
   }
 }
 

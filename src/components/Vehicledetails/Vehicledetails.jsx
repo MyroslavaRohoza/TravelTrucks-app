@@ -1,5 +1,6 @@
 import css from "./vehicledetails.module.css";
 import UnderlineDecorator from "../UnderlineDecorator/UnderlineDecorator";
+import { capitalizeAndFormat } from '../../js/utils';
 
 
 const Vehicledetails = ({ vechicleDetails }) => {
@@ -8,14 +9,14 @@ const Vehicledetails = ({ vechicleDetails }) => {
   };
 
   return (
-    <div>
+    <div className={css.vehicledetailsContainer}>
       <UnderlineDecorator>
         <h3>Vehicle details</h3>
       </UnderlineDecorator>
       <ul className={css.vehicledetailsList}>
         <li className={css.listItem}>
           <p>Form</p>
-          <p>{vechicleDetails.form}</p>
+          <p>{capitalizeAndFormat(vechicleDetails.form)}</p>
         </li>
         <li className={css.listItem}>
           <p>Length</p>

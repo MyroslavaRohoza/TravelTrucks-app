@@ -25,3 +25,10 @@ export const findCampersByFilter = (parameters) => {
     return;
   }
 };
+
+export const capitalizeAndFormat = (str) => {
+  return (
+    str.charAt(0).toUpperCase() +
+    str.slice(1).replace(/([a-z])([A-Z])/g, "$1 $2")
+  );
+};

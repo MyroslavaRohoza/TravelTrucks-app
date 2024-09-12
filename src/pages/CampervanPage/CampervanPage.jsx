@@ -67,7 +67,7 @@ const CampervanPage = () => {
           />
         }
         <CampersGallery photos={galleryImgArr} />
-        <p className={`text`}>{description}</p>
+        <p className={`text ${css.campervanDescription}`}>{description}</p>
         <div className={css.featuresReviewsContainer}>
           <div className={css.featuresReviews}>
             <Link to="features" className={css.featuresReviewsLink}>

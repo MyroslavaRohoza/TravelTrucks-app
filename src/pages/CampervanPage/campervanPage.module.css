@@ -13,6 +13,10 @@
   }
 }
 
+.campervanDescription {
+  margin-top: 24px;
+}
+
 .featuresReviewsContainer::after {
   content: "";
   display: block;

@@ -1,5 +1,6 @@
 .campersInfo {
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -8,41 +9,13 @@
   flex-direction: column;
 }
 
-.ratingContainer {
-  display: flex;
-  align-items: center;
-
-  justify-content: space-between;
-}
-
 .ratingIcon {
   display: flex;
 }
 
-.ratingContainer {
-  gap: 16px;
-}
-
-@media screen and (min-width: 928px) and (max-width: 1440px) {
-  .ratingContainer {
-    gap: 16px;
-    justify-content: start;
-  }
-}
-
-@media screen and (max-width: 1439px) {
-  .ratingContainer {
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-  }
-}
-
 .location,
-.reviewsInfo {
-  display: flex;
-  align-items: center;
-  gap: 4px;
+.rating {
+  margin-left: 4px;
 }
 
 .campersInfoHeader {
@@ -55,6 +28,47 @@
   display: flex;
 }
 
-.campersInfo {
-  width: 100%;
+.ratingContainer,
+.locationInfo {
+  display: flex;
+  align-items: center;
+}
+
+.reviewsInfo {
+  display: flex;
+  gap: 16px;
+  align-items: start;
+}
+
+@media screen and (max-width: 768px) {
+  .reviewsInfo {
+    flex-direction: column;
+  }
+
+  .campersInfoHeader {
+    font-size: 20px;
+  }
+}
+
+.selectBtn {
+  margin-left: 12px;
+  padding: 0px;
+  align-self: start;
+  justify-self: start;
+  background-color: transparent;
+  border: none;
+  padding-top: 4px;
+}
+
+.selectBtn:hover .likeIcon {
+  fill: var(--light-tomato);
+}
+.selected {
+  fill: var(--light-tomato);
+  scale: 1.2;
+}
+
+.priceAndActions {
+  display: flex;
+  align-items: center;
 }

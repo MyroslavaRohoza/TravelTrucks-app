@@ -1,5 +1,9 @@
+import { useRef } from "react";
 import Icon from "../Icon/Icon";
+import MultiActionButton from "../MultiActionButton/MultiActionButton";
 import css from "./camperSummary.module.css";
+import { useDispatch } from "react-redux";
+import { selectedList } from "../../redux/campers/campersSlice";
 
 const CamperSummary = ({
   name,
@@ -7,35 +11,56 @@ const CamperSummary = ({
   reviewsCount,
   location,
   price,
-  addClass = "",
+  id,
+  iconId,
 }) => {
-  return (
-    <div className={`${css.campersInfo} ${addClass}`}>
-      <div className={css.ratingInfo}>
-        <h2 className={css.campersInfoHeader}>{name}</h2>
-        <div className={css.ratingContainer}>
-          <div className={css.reviewsInfo}>
-            <Icon
-              id="icon-Rating"
-              width={16}
-              height={16}
-              fill="var(--golden-yellow)"
-              stroke="var(--golden-yellow)"
-              addClass={css.ratingIcon}
-            />
 
-            <div className={css.reviews}>
-              <p className={css.rating}>{rating}</p>
-              <p>({reviewsCount} Reviews)</p>
-            </div>
-          </div>
-          <p className={css.location}>
-            <Icon id="icon-map" width={16} height={16} />
-            {location}
-          </p>
+ const handleSelectBtnClick = (id) => {
+   dispatch(selectedList(id));
+   selectedBtnRef.current.classList.toggle(css.selected);
+ };
+  const selectedBtnRef = useRef(null);
+  const dispatch = useDispatch();
+  return (
+    <div className={css.campersSummary}>
+      <div className={css.campersInfo}>
+        <h2 className={css.campersInfoHeader}>{name}</h2>
+        <div className={css.priceAndActions}>
+          <h2 className={css.campersInfoHeader}>€{price?.toFixed(2)}</h2>
+          <MultiActionButton
+            id={id}
+            handleSelectBtnClick={handleSelectBtnClick}
+            addClass={css.selectBtn}
+          >
+            <Icon
+              id={iconId}
+              ref={selectedBtnRef}
+              width={26}
+              height={24}
+              addClass={css.likeIcon}
+            />
+          </MultiActionButton>
         </div>
       </div>
-      <h2 className={css.campersInfoHeader}>€{price?.toFixed(2)}</h2>
+      <div className={css.reviewsInfo}>
+        <div className={css.ratingContainer}>
+          <Icon
+            id="icon-Rating"
+            width={16}
+            height={16}
+            fill="var(--golden-yellow)"
+            stroke="var(--golden-yellow)"
+            addClass={css.ratingIcon}
+          />
+          <p className={css.rating}>{rating}</p>
+          <p>({reviewsCount} Reviews)</p>
+        </div>
+
+        <div className={css.locationInfo}>
+          <Icon id="icon-map" width={16} height={16} />
+          <p className={css.location}>{location}</p>
+        </div>
+      </div>
     </div>
   );
 };

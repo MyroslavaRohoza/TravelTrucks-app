@@ -42,11 +42,6 @@ const CatalogListItem = ({
     }
   };
 
-  const handleSelectBtnClick = (id) => {
-    dispatch(selectedList(id));
-    selectedBtnRef.current.classList.toggle(css.selected);
-  };
-
   return (
     <li className={css.listItem}>
       <div className={css.campersImgThumb}>
@@ -60,20 +55,9 @@ const CatalogListItem = ({
             reviewsCount={reviewsCount}
             location={location}
             price={price}
-          />
-          <MultiActionButton
             id={id}
-            handleSelectBtnClick={handleSelectBtnClick}
-            addClass={css.selectBtn}
-          >
-            <Icon
-              id={iconId}
-              ref={selectedBtnRef}
-              width={26}
-              height={24}
-              addClass={css.likeIcon}
-            />
-          </MultiActionButton>
+            iconId={iconId}
+          />
         </div>
         <p className={css.description}>{description}</p>
         <div className={css.filterList}>

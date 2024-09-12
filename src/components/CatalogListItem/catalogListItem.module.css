@@ -23,11 +23,6 @@
 
 }
 
-.campersSummaryContainer {
-  display: flex;
-  justify-content: space-between;
-}
-
 .campersInfoContainer {
   display: grid;
   grid-template-columns: auto;
@@ -42,24 +37,6 @@
 .campersImg {
   height: 100%;
   width: 100%;
-}
-
-.selectBtn {
-  margin-left: 12px;
-  padding: 0px;
-  align-self: start;
-  justify-self: start;
-  background-color: transparent;
-  border: none;
-  padding-top: 4px;
-}
-
-.selectBtn:hover .likeIcon {
-  fill: var(--light-tomato);
-}
-.selected {
-  fill: var(--light-tomato);
-  scale: 1.2;
 }
 
 

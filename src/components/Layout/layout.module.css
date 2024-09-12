@@ -6,11 +6,32 @@
   background-color: var(--cloud-white);
 }
 
+@media screen and (max-width: 550px) {
+  .header {
+    padding: 12px 16px 12px 16px;
+  }
+}
+
 .nav {
   display: flex;
   width: 100%;
   justify-content: center;
-  gap: 32px;
+  gap: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .nav {
+    gap: 32px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .nav {
+    flex-direction: column;
+  }
+  .header {
+    gap: 32px;
+  }
 }
 
 .captionText {

@@ -54,7 +54,7 @@
   grid-row-gap: 34px;
 }
 
-@media screen and (min-width: 928px) {
+@media screen and (min-width: 982px) {
   .catalogWrapper {
     display: grid;
     grid-template-columns: auto 1fr;

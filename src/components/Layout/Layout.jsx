@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
     <>
       <header className={css.header}>
         <NavLink to="/">
-          <Icon id="icon-Logo" height={16} />
+          <Icon id="icon-Logo" width={136} height={15} />
         </NavLink>
         <nav className={css.nav}>
           <NavLink to="/" className={buildLinkClass}>

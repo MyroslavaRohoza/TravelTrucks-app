@@ -27,6 +27,9 @@ export const findCampersByFilter = (parameters) => {
 };
 
 export const capitalizeAndFormat = (str) => {
+  if (!str) {
+    return;
+  }
   return (
     str.charAt(0).toUpperCase() +
     str.slice(1).replace(/([a-z])([A-Z])/g, "$1 $2")

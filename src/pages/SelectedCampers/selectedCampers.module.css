@@ -5,6 +5,12 @@
 }
 
 .selectedCampersContainer {
-  padding: 48px 64px 0px 64px;
+  padding: 32px 48px 0 48px;
   width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .selectedCampersContainer {
+    padding: 48px 64px 0px 64px;
+  }
 }

@@ -6,7 +6,7 @@ import CatalogListItem from "../../components/CatalogListItem/CatalogListItem";
 const SelectedCampers = () => {
   const selectItemsList = useSelector(selectSelectedList);
   return (
-    <div className={css.selectedCampersContainer}>
+    <main className={css.selectedCampersContainer}>
       <ul className={css.selectedCampersList}>
         {Array.isArray(selectItemsList) && selectItemsList.length > 0 ? (
           selectItemsList.map((item) => (
@@ -39,7 +39,7 @@ const SelectedCampers = () => {
           <p className={css.noSelectedText}>No selected campers</p>
         )}
       </ul>
-    </div>
+    </main>
   );
 };
 

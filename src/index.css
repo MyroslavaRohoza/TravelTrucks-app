@@ -17,6 +17,12 @@
   --header-height: 73px;
 }
 
+a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 p,
 h1,
 h2,

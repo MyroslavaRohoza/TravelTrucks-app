@@ -28,7 +28,13 @@
 .catalogMainContainer {
   background-color: var(--white);
   display: grid;
-  padding: 48px 64px 0 64px;
+  padding: 32px 48px 0 48px;
+}
+
+@media screen and (min-width: 768px) {
+  .catalogMainContainer {
+    padding: 48px 64px 0 64px;
+  }
 }
 
 .filter {

@@ -45,11 +45,12 @@ const CampervanPage = () => {
     consumption: camper.consumption,
   };
 
-  const galleryImgArr = camper instanceof Object && [
-    gallery[0].thumb,
-    gallery[1].thumb,
-    gallery[2].thumb,
-  ];
+  const galleryItems = (gallery) => {
+    if (Array.isArray(gallery)) {
+      return gallery.map((img) => img.thumb);
+    }
+  };
+  const galleryImgArr = galleryItems(gallery);
 
   const reviews = camper instanceof Object && camper.reviews;
 

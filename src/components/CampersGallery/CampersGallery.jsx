@@ -5,11 +5,11 @@ const CampersGallery = ({ photos, id }) => {
   return (
     <ul className={css.campersGallery}>
       {Array.isArray(photos) &&
-        photos.map((image, index) => (
-          <CampersGalleryItem key={index}>
+        photos.map((image) => (
+          <CampersGalleryItem key={id}>
             <img
               src={image}
-              alt={`Camper ${id} - ${index}`}
+              alt={`Camper ${id}`}
               className={css.campersGalleryImg}
             />
           </CampersGalleryItem>

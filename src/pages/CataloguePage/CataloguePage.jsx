@@ -23,7 +23,6 @@ import { useRef } from "react";
 import { setCurrentPage, selectFilter } from "../../redux/campers/campersSlice";
 import RedButton from "../../components/RedButton/RedButton";
 import Loader from "../../components/Loader/Loader";
-import SelectedCampers from "../SelectedCampers/SelectedCampers";
 
 const CataloguePage = () => {
   const currentPage = useSelector(selectCurrentPage);
@@ -89,7 +88,7 @@ const CataloguePage = () => {
       if (element.type === "radio" && element.checked) {
         data.type.form = form.elements.form.value;
       } else {
-        data.camperslocation.location = `Ukraine, ${form.elements.location.value}`;
+        data.camperslocation.location = form.elements.location.value;
       }
     }
 

@@ -1,4 +1,11 @@
-import { Link, Route, Routes, useParams } from "react-router-dom";
+import {
+  Link,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 import css from "./campervanPage.module.css";
 import { useEffect } from "react";
 import { fetchCamperById } from "../../redux/campers/operations";
@@ -13,9 +20,15 @@ import CamperFormContainer from "../../components/CamperFormContainer/CamperForm
 const CampervanPage = () => {
   const camperId = useParams().id;
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const routeLocation = useLocation();
   useEffect(() => {
     dispatch(fetchCamperById(camperId));
-  }, [camperId, dispatch]);
+
+    if (routeLocation.pathname === `/catalog/${camperId}`) {
+      navigate("features", { replace: true });
+    }
+  }, [camperId, dispatch, navigate, routeLocation]);
 
   let camper = useSelector(selectCamperDetail);
   const { description, name, rating, reviewsCount, location, price, gallery } =

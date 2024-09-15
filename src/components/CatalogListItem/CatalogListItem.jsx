@@ -1,13 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import Icon from "../Icon/Icon";
 import CatalogFilterList from "../ItemFilterList/CatalogFilterList";
 import RedButton from "../RedButton/RedButton";
 import css from "./catalogListItem.module.css";
 import CamperSummary from "../CamperSummary/CamperSummary";
-import { useRef } from "react";
-import { selectedList } from "../../redux/campers/campersSlice";
-import { useDispatch } from "react-redux";
-import MultiActionButton from "../MultiActionButton/MultiActionButton";
 
 const CatalogListItem = ({
   img,
@@ -33,8 +28,6 @@ const CatalogListItem = ({
   iconId,
 }) => {
   const navigate = useNavigate();
-  const selectedBtnRef = useRef(null);
-  const dispatch = useDispatch();
 
   const handleClick = (id) => {
     if (id) {

@@ -12,18 +12,18 @@
 
 @media screen and (min-width: 1440px) {
   .listItem {
-    grid-template-columns: auto auto;
+    grid-template-columns: repeat(2, auto);
     grid-column-gap: 24px;
   }
   .showMoreBtn {
     align-self: start;
     justify-self: start;
   }
-  .campersImgThumb{
+  .campersImgThumb {
     width: 292px;
     height: 320px;
   }
-  .campersImg{
+  .campersImg {
     width: 100%;
     height: 100%;
     object-fit: cover;

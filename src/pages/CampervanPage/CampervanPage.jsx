@@ -1,6 +1,6 @@
 import { Link, Route, Routes, useParams } from "react-router-dom";
 import css from "./campervanPage.module.css";
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import { fetchCamperById } from "../../redux/campers/operations";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCamperDetail } from "../../redux/campers/selectors";

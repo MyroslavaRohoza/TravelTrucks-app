@@ -10,17 +10,24 @@
   justify-self: center;
 }
 
-
 @media screen and (min-width: 1440px) {
   .listItem {
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: auto auto;
     grid-column-gap: 24px;
   }
   .showMoreBtn {
-  align-self: start;
-  justify-self: start;
-}
-
+    align-self: start;
+    justify-self: start;
+  }
+  .campersImgThumb{
+    width: 292px;
+    height: 320px;
+  }
+  .campersImg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .campersInfoContainer {
@@ -38,7 +45,6 @@
   height: 100%;
   width: 100%;
 }
-
 
 .description {
   white-space: nowrap;

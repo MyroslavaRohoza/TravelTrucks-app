@@ -1,6 +1,6 @@
 import { Link, Route, Routes, useParams } from "react-router-dom";
 import css from "./campervanPage.module.css";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { fetchCamperById } from "../../redux/campers/operations";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCamperDetail } from "../../redux/campers/selectors";
@@ -45,13 +45,6 @@ const CampervanPage = () => {
     consumption: camper.consumption,
   };
 
-  const galleryItems = (gallery) => {
-    if (Array.isArray(gallery)) {
-      return gallery.map((img) => img.thumb);
-    }
-  };
-  const galleryImgArr = galleryItems(gallery);
-
   const reviews = camper instanceof Object && camper.reviews;
 
   return (
@@ -67,7 +60,7 @@ const CampervanPage = () => {
             addClass={css.campersSummary}
           />
         }
-        <CampersGallery photos={galleryImgArr} />
+        <CampersGallery photos={Array.isArray(gallery) && gallery} />
         <p className={`text ${css.campervanDescription}`}>{description}</p>
         <div className={css.featuresReviewsContainer}>
           <div className={css.featuresReviews}>

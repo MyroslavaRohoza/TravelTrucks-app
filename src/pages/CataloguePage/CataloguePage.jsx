@@ -35,7 +35,6 @@ const CataloguePage = () => {
   const loading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
 
-
   useEffect(() => {
     dispatch(fetchCampers());
   }, [dispatch]);
@@ -90,7 +89,7 @@ const CataloguePage = () => {
       if (element.type === "radio" && element.checked) {
         data.type.form = form.elements.form.value;
       } else {
-        data.camperslocation.location = form.elements.location.value;
+        data.camperslocation.location = `Ukraine, ${form.elements.location.value}`;
       }
     }
 

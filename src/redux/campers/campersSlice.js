@@ -16,6 +16,9 @@ const tasksSlice = createSlice({
     selectFilter(state, action) {
       state.filter = action.payload;
     },
+    clearError(state) {
+      state.error = null;
+    },
     selectedList(state, action) {
       const id = action.payload;
       const campersList = state.campersCollection;
@@ -76,5 +79,5 @@ const tasksSlice = createSlice({
 
 export const campersReducer = tasksSlice.reducer;
 
-export const { setCurrentPage, selectFilter, selectedList } =
+export const { setCurrentPage, selectFilter, selectedList, clearError } =
   tasksSlice.actions;

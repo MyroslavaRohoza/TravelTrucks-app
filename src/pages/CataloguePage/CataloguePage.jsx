@@ -20,7 +20,7 @@ import Icon from "../../components/Icon/Icon";
 import UnderlineDecorator from "../../components/UnderlineDecorator/UnderlineDecorator";
 import WhiteButton from "../../components/WhiteButton/WhiteButton";
 import { useRef } from "react";
-import { setCurrentPage, selectFilter } from "../../redux/campers/campersSlice";
+import { setCurrentPage, selectFilter, clearError } from "../../redux/campers/campersSlice";
 import RedButton from "../../components/RedButton/RedButton";
 import Loader from "../../components/Loader/Loader";
 
@@ -70,7 +70,9 @@ const CataloguePage = () => {
 
   const onFormSubmit = (evt) => {
     evt.preventDefault();
-    selectFilter({});
+    dispatch(clearError());
+    dispatch(selectFilter({}));
+
     const form = evt.target;
     const data = {
       equipment: {},

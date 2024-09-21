@@ -1,9 +1,10 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import Icon from "../Icon/Icon";
 import MultiActionButton from "../MultiActionButton/MultiActionButton";
 import css from "./camperSummary.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectedList } from "../../redux/campers/campersSlice";
+import { selectSelectedListIds } from "../../redux/campers/selectors";
 
 const CamperSummary = ({
   name,
@@ -14,6 +15,14 @@ const CamperSummary = ({
   id,
   iconId,
 }) => {
+
+  const selectedId = useSelector(selectSelectedListIds);
+
+useEffect(() => {
+  if (selectedId.includes(id)) {
+    selectedBtnRef.current.classList.add(css.selected);
+  }
+}, [selectedId, id]);
 
  const handleSelectBtnClick = (id) => {
    dispatch(selectedList(id));

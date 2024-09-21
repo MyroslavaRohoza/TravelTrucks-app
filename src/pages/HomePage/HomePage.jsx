@@ -4,13 +4,12 @@ import RedButton from "../../components/RedButton/RedButton.jsx";
 import { useEffect } from "react";
 const HomePage = () => {
   useEffect(() => {
-    document.body.style.overflow = 'hidden'; // Отключаем скролл
+    document.body.style.overflow = 'hidden'; 
 
     return () => {
-        document.body.style.overflow = 'auto'; // Включаем скролл при размонтировании
+        document.body.style.overflow = 'auto'; 
     };
 }, []);
-
   
   return (
     <main className={css.homePageMain} >

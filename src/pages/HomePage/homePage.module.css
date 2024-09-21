@@ -4,12 +4,15 @@
   background-size: cover;
   background-position: center;
   width: inherit;
-  height: 100vh;
   padding: 0px 64px;
   display: flex;
   align-items: center;
+  height: 100vh;
 }
-
+.textContainer {
+  flex-grow: 1;
+ 
+}
 .textColor {
   color: var(--white-smoke);
 }

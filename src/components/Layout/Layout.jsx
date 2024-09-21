@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
 const Layout = ({ children }) => {
+  
   const buildLinkClass = ({ isActive }) => {
     return clsx(
       "captionText",

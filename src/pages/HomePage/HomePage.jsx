@@ -1,9 +1,19 @@
 import css from "./homePage.module.css";
 import { Link } from "react-router-dom";
 import RedButton from "../../components/RedButton/RedButton.jsx";
+import { useEffect } from "react";
 const HomePage = () => {
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'; // Отключаем скролл
+
+    return () => {
+        document.body.style.overflow = 'auto'; // Включаем скролл при размонтировании
+    };
+}, []);
+
+  
   return (
-    <main>
+    <main className={css.homePageMain} >
       <section className={`${css.homePageSection}`}>
         <div className={css.textContainer}>
           <h1 className={`${css.textColor} ${css.text}`}>

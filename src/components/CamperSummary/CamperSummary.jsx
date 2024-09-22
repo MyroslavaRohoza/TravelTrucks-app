@@ -21,7 +21,10 @@ const CamperSummary = ({
 useEffect(() => {
   if (selectedId.includes(id)) {
     selectedBtnRef.current.classList.add(css.selected);
+  }else{
+    selectedBtnRef.current.classList.remove(css.selected);
   }
+
 }, [selectedId, id]);
 
  const handleSelectBtnClick = (id) => {

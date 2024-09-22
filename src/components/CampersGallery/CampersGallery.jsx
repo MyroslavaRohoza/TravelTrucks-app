@@ -18,7 +18,7 @@ const CampersGallery = ({ photos }) => {
       speed={500}
       hideScrollbar={true}
       mousewheel={true}
-      mode="lg-lollipop-rev"
+      mode="lg-lollipop"
       elementClassNames={css.campersGallery}
     >
       {Array.isArray(photos) &&

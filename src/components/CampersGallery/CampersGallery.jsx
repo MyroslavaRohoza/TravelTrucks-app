@@ -1,31 +1,41 @@
 import css from "./campersGallery.module.css";
-import CampersGalleryItem from "../CampersGalleryItem/CampersGalleryItem";
 import LightGallery from "lightgallery/react";
 
 import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-thumbnail.css";
+
 import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgZoom from "lightgallery/plugins/zoom";
+import "lightgallery/css/lg-transitions.css";
 
-const CampersGallery = ({ photos, id }) => {
+import "../../index.css";
+
+const CampersGallery = ({ photos }) => {
   return (
-    <ul className={css.campersGallery}>
+    <LightGallery
+      plugins={[lgThumbnail, lgZoom]}
+      speed={500}
+      hideScrollbar={true}
+      mousewheel={true}
+      mode="lg-lollipop-rev"
+      elementClassNames={css.campersGallery}
+    >
       {Array.isArray(photos) &&
         photos.map((image, index) => (
-          <CampersGalleryItem key={index}>
-            <LightGallery plugins={[lgThumbnail, lgZoom]}>
-              <a href={image.original}>
-                <img
-                  src={image.thumb}
-                  alt={`Camper ${index}`}
-                  className={css.campersGalleryImg}
-                />
-              </a>
-            </LightGallery>
-          </CampersGalleryItem>
+          <a
+            key={index}
+            href={image.original}
+            className={css.campersGalleryItem}
+          >
+            <img
+              src={image.thumb}
+              alt={`Photo ${index + 1}`}
+              className={css.campersGalleryImg}
+            />
+          </a>
         ))}
-    </ul>
+    </LightGallery>
   );
 };
 

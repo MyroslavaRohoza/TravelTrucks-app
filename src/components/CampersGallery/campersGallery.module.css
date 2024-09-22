@@ -7,6 +7,11 @@
 .campersGalleryImg {
   width: 100%;
   height: 100%;
-
   border-radius: 12px;
 }
+
+.campersGalleryItem {
+  width: 100%;
+  height: 312px;
+}
+
